@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip & Strokes Canada | Creative Studio & Events</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-hover: #c1121f;
+            --dark-bg: #111113;
+            --card-bg: #1c1c20;
+            --text-light: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: #2e2e38;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: rgba(17, 17, 19, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
+
+        .logo {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-btn {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-btn:hover {
+            color: var(--primary);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-light);
+            padding: 0.8rem 1.2rem;
+            display: block;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--dark-bg);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--text-light);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(17, 17, 19, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.8rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .mobile-nav-overlay.active {
+            display: flex;
+        }
+
+        .mobile-nav-overlay a, .mobile-nav-overlay button {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav-overlay a:hover, .mobile-nav-overlay button:hover {
+            color: var(--primary);
+        }
+
+        .mobile-dropdown-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem !important;
+            color: var(--text-muted) !important;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+        }
+
+        /* Page Layout Control with Fade Transitions */
+        .page-view {
+            display: none;
+            opacity: 0;
+            padding: 3rem 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .page-view.active-page {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Homepage Hero Section */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(rgba(17, 17, 19, 0.75), rgba(17, 17, 19, 0.9)), url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1600') center/cover no-repeat;
+            border-radius: 16px;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Core Aspects Hub Showcase Cards */
+        .aspects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .aspect-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .aspect-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .aspect-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .aspect-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .aspect-badge {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.15);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+            align-self: flex-start;
+        }
+
+        /* Features Cards Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.8rem;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .section-header h1, .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* About Component */
+        .about-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3.5rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Artist Bios Section */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .artist-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .artist-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .artist-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .artist-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .artist-card p {
+            color: var(--text-muted);
+            padding: 0 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: #ffb703;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* FAQ Section Components */
+        .faq-section {
+            max-width: 900px;
+            margin: 4rem auto;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-toggle-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-muted);
+            padding: 0 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.2rem 1.5rem;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Photo Spotlight Section */
+        .photo-spotlight {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .photo-strip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .photo-strip-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .photo-strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-strip-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .package-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .media-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .media-body {
+            padding: 1.2rem;
+        }
+
+        /* OPTION 2 COMBINED PAGE STYLES (WORK + ARTIST TOGETHER) */
+        .combined-detail-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Section 1: Artwork Focus */
+        .artwork-primary-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            padding-bottom: 3rem;
+            border-bottom: 2px dashed var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .artwork-main-img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .upcycle-badge {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.15);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(230, 57, 70, 0.3);
+        }
+
+        .artwork-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .artwork-spec-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 1.2rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .spec-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spec-item span {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Section 2: Artist Profile Directly Below */
+        .artist-secondary-section {
+            background-color: rgba(17, 17, 19, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .artist-profile-header {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .artist-profile-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        /* Form Area */
+        .booking-section {
+            background-color: var(--card-bg);
+            max-width: 650px;
+            margin: 2rem auto 4rem;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            color: white;
+            border-radius: 6px;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        #form-status {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3.5rem 5% 2.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .footer-contact-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-nav {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 900px) {
+            .hero-title { font-size: 2.3rem; }
+            .about-section { grid-template-columns: 1fr; }
+            .artwork-primary-section { grid-template-columns: 1fr; }
+            .artist-profile-header { grid-template-columns: 1fr; text-align: center; }
+            .artist-profile-avatar { margin: 0 auto; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .footer-contact-details { flex-direction: column; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <a onclick="showPage('home-page')" class="logo" style="display: flex; align-items: center; gap: 0.65rem; text-decoration: none; cursor: pointer;">
+            <span class="logo-badge" style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                🎨🍷
+            </span>
+            <span style="display: flex; flex-direction: column;">
+                <span style="font-size: 1.3rem; font-weight: 800; color: white; letter-spacing: 1px; line-height: 1;">
+                    SIP <span style="color: var(--primary);">&amp;</span> STROKES
+                </span>
+                <span style="font-size: 0.65rem; color: #a0a0a0; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px;">
+                    Studio &amp; Events
+                </span>
+            </span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a onclick="showPage('home-page')">Home</a></li>
+            <li><a onclick="showPage('sip-and-paint')">Sip &amp; Paint</a></li>
+            <li class="dropdown">
+                <button class="dropdown-btn">Galleries &#9662;</button>
+                <div class="dropdown-menu">
+                    <a onclick="showPage('sip-paint-gallery')">Sip &amp; Paint Gallery</a>
+                    <a onclick="showPage('upcycle-art')">Upcycle Fine Art</a>
+                    <a onclick="showPage('photography')">Studio Photography</a>
+                </div>
+            </li>
+            <li><a onclick="showPage('about-page')">About Us</a></li>
+            <li><a onclick="showPage('testimonials-page')">Testimonials</a></li>
+            <li><a onclick="showPage('booking-page')">Inquire / Book</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a onclick="showPage('booking-page')" class="btn" style="display: inline-block;">Inquire Now</a>
+            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a onclick="showPage('home-page'); toggleMobileMenu();">Home</a>
+        <a onclick="showPage('sip-and-paint'); toggleMobileMenu();">Sip &amp; Paint</a>
+        <div class="mobile-dropdown-links">
+            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Galleries</span>
+            <a onclick="showPage('sip-paint-gallery'); toggleMobileMenu();" style="font-size: 1.1rem;">Sip &amp; Paint Gallery</a>
+            <a onclick="showPage('upcycle-art'); toggleMobileMenu();" style="font-size: 1.1rem;">Upcycle Fine Art</a>
+            <a onclick="showPage('photography'); toggleMobileMenu();" style="font-size: 1.1rem;">Studio Photography</a>
+        </div>
+        <a onclick="showPage('about-page'); toggleMobileMenu();">About Us</a>
+        <a onclick="showPage('testimonials-page'); toggleMobileMenu();">Testimonials</a>
+        <a onclick="showPage('booking-page'); toggleMobileMenu();">Inquire / Book</a>
+    </div>
+
+    <!-- PAGE 1: GENERIC HOMEPAGE -->
+    <main id="home-page" class="page-view active-page">
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Where Artistry, Social Connection &amp; Sustainable Design Meet</h1>
+                <p class="hero-subtitle">Welcome to Sip &amp; Strokes Canada—your multi-disciplinary creative hub for guided paint events, eco-conscious upcycled fine art, and studio photography.</p>
+                <div class="hero-actions">
+                    <button onclick="showPage('booking-page')" class="btn">Inquire / Book Service</button>
+                    <button onclick="showPage('about-page')" class="btn btn-outline">Learn About Us</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2>Explore Our Creative Pillars</h2>
+            <p>Select an offering to explore guided workshops, fine art collections, or studio services.</p>
+        </div>
+
+        <section class="aspects-grid">
+            <div class="aspect-card">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Sip and Paint Sessions" class="aspect-img">
+                <div class="aspect-body">
+                    <div>
+                        <span class="aspect-badge">Social Events &amp; Giving Back</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Sip &amp; Paint Workshops</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                            BYOB step-by-step social paint workshops, private party events, free community gatherings, and youth summer art classes.
+                        </p>
+                    </div>
+                    <button onclick="showPage('sip-and-paint')" class="btn" style="width: 100%;">Explore Sip &amp; Paint Page</button>
+                </div>
+            </div>
+
+            <div class="aspect-card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800" alt="Upcycle Fine Art" class="aspect-img">
+                <div class="aspect-body">
+                    <div>
+                        <span class="aspect-badge">Sustainable Fine Art</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Upcycle Fine Art</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                            Original wall sculptures and mixed media artwork created from reclaimed urban timber, brass, and recycled materials.
+                        </p>
+                    </div>
+                    <button onclick="showPage('upcycle-art')" class="btn btn-outline" style="width: 100%;">View Upcycle Gallery</button>
+                </div>
+            </div>
+
+            <div class="aspect-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800" alt="Studio Photography" class="aspect-img">
+                <div class="aspect-body">
+                    <div>
+                        <span class="aspect-badge">Media &amp; Portraits</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Studio Photography</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                            Professional fine art portraiture, editorial headshots, creative branding sessions, and private event coverage.
+                        </p>
+                    </div>
+                    <button onclick="showPage('photography')" class="btn btn-outline" style="width: 100%;">View Photography</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🎨</span>
+                <h3>Expert Guidance</h3>
+                <p>Guided by professional Canadian artists across fine painting, sculpting, and studio photography.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🤝</span>
+                <h3>Community Impact</h3>
+                <p>Hosting free community events and subsidized summer youth programs to keep art accessible to everyone.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✨</span>
+                <h3>Custom Experiences</h3>
+                <p>Tailored booking packages for private birthdays, corporate retreats, and artwork commissions.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- PAGE 2: DEDICATED SIP & PAINT PAGE -->
+    <main id="sip-and-paint" class="page-view">
+        <section class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Unleash Your Creativity, One Sip at a Time</h1>
+                <p class="hero-subtitle">Guided social painting workshops, private parties, free community gatherings, and youth creative programs.</p>
+                <div class="hero-actions">
+                    <button onclick="showPage('booking-page')" class="btn">Inquire / Book Session</button>
+                    <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Paint Gallery</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="about-section">
+            <div class="about-content">
+                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Our Mission &amp; Community Impact</span>
+                <h2>Art, Connection &amp; Giving Back</h2>
+                <p>
+                    Founded in the heart of our vibrant artistic community, Sip &amp; Strokes was born out of a desire to make fine art creation accessible, engaging, and deeply social for everyone. We believe that creativity isn't reserved exclusively for seasoned artists—it is an innate form of human expression waiting to be unlocked.
+                </p>
+                <p>
+                    Our guided painting workshops seamlessly blend step-by-step artistic instruction with a relaxed, celebratory social environment. Combined with your favorite beverages, great music, and friendly company, we turn every gathering into a memorable creative experience.
+                </p>
+                <p>
+                    Deeply rooted in the community we call home, we are equally committed to giving back and nurturing the next generation of creators. To ensure art remains accessible to all, we host free community events throughout the year and run subsidized summer creative classes for youth aged 6 to 16. By offering affordable, inspiring programs for young artists and open spaces for neighbors to connect, we strive to keep our local culture vibrant, inclusive, and growing.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800" alt="Sip and Paint Community Experience">
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Ways We Give Back</h2>
+            <p>Empowering our neighborhood through free events and affordable youth art education.</p>
+        </div>
+
+        <section class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 4rem;">
+            <div class="feature-item" style="text-align: left; padding: 2.2rem; border-top: 4px solid var(--primary);">
+                <span class="feature-icon" style="font-size: 2.5rem;">🎉</span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Free Community Events</h3>
+                <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
+                    Inclusive artistic gatherings designed to bring neighbors together through music, light instruction, and shared fun. Everyone in the community is welcome to participate!
+                </p>
+                <button onclick="requestArtwork('Community Event Inquiry')" class="btn btn-outline" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Inquire Next Event</button>
+            </div>
+
+            <div class="feature-item" style="text-align: left; padding: 2.2rem; border-top: 4px solid var(--primary);">
+                <span class="feature-icon" style="font-size: 2.5rem;">🎨</span>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Subsidized Youth Summer Classes</h3>
+                <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
+                    High-quality art workshops for ages 6–16 offered at a fraction of the cost, making summer creative enrichment affordable and inspiring for every family.
+                </p>
+                <button onclick="requestArtwork('Youth Summer Program Registration')" class="btn" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Youth Class Details</button>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2>Experience Packages</h2>
+            <p>Guided social painting sessions for private parties, corporate events, and public workshops.</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <div>
+                    <h3>Classic Social Session</h3>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">$35 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ guest</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">All supplies, canvas, and 2 hours of step-by-step studio instruction included.</p>
+                </div>
+                <button onclick="requestArtwork('Classic Sip &amp; Paint Event')" class="btn btn-outline">Inquire to Book</button>
+            </div>
+
+            <div class="package-card" style="border: 2px solid var(--primary);">
+                <div>
+                    <h3>VIP Private Party</h3>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">$50 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ guest</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Custom theme selection, stretched canvas, dedicated assistant, and full studio access.</p>
+                </div>
+                <button onclick="requestArtwork('VIP Sip &amp; Paint Party')" class="btn">Inquire VIP Party</button>
+            </div>
+
+            <div class="package-card">
+                <div>
+                    <h3>On-Location / Mobile</h3>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">Custom Quote</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Full mobile paint studio setup at your venue or corporate office space.</p>
+                </div>
+                <button onclick="requestArtwork('Mobile Sip &amp; Paint Request')" class="btn btn-outline">Inquire Mobile Quote</button>
+            </div>
+        </div>
+
+        <div class="photo-spotlight">
+            <h2>Moments From Our Sessions &amp; Community Days</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 1.5rem;">Get a glimpse of the fun, artistic creations, and lively atmosphere in our sessions.</p>
+            <div class="photo-strip-grid">
+                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=500" alt="Preview 1"></div>
+                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500" alt="Preview 2"></div>
+                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500" alt="Preview 3"></div>
+                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500" alt="Preview 4"></div>
+            </div>
+            <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Full Paint Gallery</button>
+        </div>
+
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know before attending, booking, or joining our studio community.</p>
+        </div>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do I need any prior painting experience?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Absolute beginners are welcome! Our sessions are step-by-step guided by expert instructor artists. We break down every painting into easy, fun steps so you leave with a finished canvas you'll be proud of.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is your BYOB policy? What should I bring?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Guests are welcome to bring their choice of wine, beer, or non-alcoholic beverages, along with light finger foods or snacks. We provide ice, wine openers, cups, and napkins for your convenience.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What supplies are included with my booking?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    We provide everything required to create your masterpiece: aprons, easels, canvases, acrylic paints, brushes, and palette setups. All you need to bring is your enthusiasm (and drinks)!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do your Subsidized Youth Summer Classes work?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Our youth summer creative programs (ages 6–16) run throughout July and August. Registration opens each spring on a first-come, first-served basis with subsidized tuition options for local families. Use our booking form to join the alert list!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Are Free Community Events open to everyone?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! Our free community gatherings are designed to make art inclusive for all neighbors. While tickets are free, space is limited—so we recommend reserving your spot online as soon as event dates are announced.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I host a private party or corporate event?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! We host private birthday parties, bachelorette celebrations, corporate team-building events, and mobile on-location workshops. Use our online booking form to inquire about date availability and custom themes.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What should I wear to a painting session?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    We provide protective aprons for all guests, but acrylic paint can be stubborn if it gets on fabric. We recommend wearing comfortable, casual clothes that you wouldn't mind getting a small paint splash on!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What happens if I am late for a session?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    We recommend arriving 15 minutes before your session start time to grab a drink and settle in. If you run a few minutes late, our studio assistants will help you catch up without interrupting the class flow!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I customize the painting colors or design during class?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Absolutely! While our instructor guides the group through the featured image step by step, we encourage individual creativity. Feel free to change color palettes, add personal details, or paint whatever inspires you.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can guests book together to sit as a group?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! If your party is purchasing tickets separately, simply note your group or organizer name in the booking form when reserving, and we will ensure your group is seated together at the same painting station.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is your cancellation and rescheduling policy?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Individual bookings can be rescheduled up to 48 hours prior to the event start time. For VIP private events, deposits are refundable up to 7 days before your scheduled date.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you offer mobile / on-location paint parties?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! We bring the full Sip &amp; Strokes studio setup directly to your office, venue, or outdoor space. We provide all easels, drop cloths, brushes, and paints. All you need to provide are tables and chairs!
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PAGE 3: ABOUT US -->
+    <main id="about-page" class="page-view">
+        <div class="section-header">
+            <h1>About Us</h1>
+            <p>Meet the passionate creative team inspiring artistic expression across Canada.</p>
+        </div>
+
+        <div class="about-section">
+            <div class="about-content">
+                <h2>Our Story &amp; Philosophy</h2>
+                <p>Sip &amp; Strokes Canada was established with a singular mission: to bring art, relaxation, and genuine human connection back into daily life. We transform ordinary evenings into extraordinary social celebrations where guests learn new artistic techniques without pressure.</p>
+                <p>From fine art commissions and youth programs to community workshops, our multi-disciplinary studio brings color, joy, and collaborative energy to every project we touch.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Studio Space">
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 2rem;">
+            <h2>Our Core Values</h2>
+            <p>What drives our studio, instructors, and community every single day.</p>
+        </div>
+
+        <section class="features-grid" style="margin-bottom: 4rem;">
+            <div class="feature-item">
+                <span class="feature-icon">🌱</span>
+                <h3>Eco-Conscious Artistry</h3>
+                <p>We actively reduce studio waste by sourcing reclaimed materials, upcycling textiles, and using eco-friendly paints.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🤝</span>
+                <h3>Inclusive Workshops</h3>
+                <p>Art is for everyone. We foster a judgment-free, encouraging atmosphere for beginners and seasoned creators alike.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💡</span>
+                <h3>Community-Driven</h3>
+                <p>Partnering with local Canadian artisans, hosting free neighborhood events, and running subsidized youth art programs.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✨</span>
+                <h3>Uncompromising Quality</h3>
+                <p>From high-grade stretched canvases to professional instructors, every detail is crafted for an extraordinary experience.</p>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2>Resident Artists &amp; Instructors</h2>
+            <p>Guided by seasoned professionals in fine art, illustration, and photography.</p>
+        </div>
+
+        <div class="artists-grid">
+            <div class="artist-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Elena Vance Profile">
+                <h3>Elena Vance</h3>
+                <span class="artist-role">Lead Instructor &amp; Studio Director</span>
+                <p style="margin-bottom: 1.2rem;">Over 10 years of experience leading social painting events, youth summer workshops, and fine art events across Canada.</p>
+                <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Workshop Gallery</button>
+            </div>
+            <div class="artist-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Marcus Chen Profile">
+                <h3>Marcus Chen</h3>
+                <span class="artist-role">Upcycle Sculptor &amp; Designer</span>
+                <p style="margin-bottom: 1.2rem;">Specializes in eco-conscious mixed media sculptures and reclaimed timber architectural panels.</p>
+                <button onclick="openUpcycleDetail('Reclaimed Timber Mosaic', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000', 'Mixed Media Wall Relief', 'Marcus Chen', 'marcus-chen', 'This piece reclaims weathered 19th-century pine and oak urban timber, hand-cut into geometric facets.', '48 in x 36 in', 'Salvaged Pine & Oak', 'Original Piece (Available)')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Work &amp; Bio</button>
+            </div>
+            <div class="artist-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" alt="Maya Lin Profile">
+                <h3>Maya Lin</h3>
+                <span class="artist-role">Eco Textile &amp; Fiber Artist</span>
+                <p style="margin-bottom: 1.2rem;">Master weaver transforming post-consumer natural textiles and paper into tactile wall hangings.</p>
+                <button onclick="openUpcycleDetail('Eco Paper Tapestry', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000', 'Recycled Fiber Art', 'Maya Lin', 'maya-lin', 'Formed entirely from 100% post-consumer discarded paper transformed into raw cotton-like pulp.', '60 in x 40 in', 'Recycled Cotton Pulp', 'Original Piece (Available)')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Work &amp; Bio</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- PAGE 4: TESTIMONIALS -->
+    <main id="testimonials-page" class="page-view">
+        <div class="section-header">
+            <h1>Guest Testimonials</h1>
+            <p>Read what our workshop attendees, party hosts, corporate clients, and parents have to say.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Hosted my 30th birthday here and it was hands-down the best party experience! Everyone took home an incredible painting and had an unforgettable time."[cite: 1]</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h4>Sarah Jenkins</h4>
+                        <span>Private Party Host</span>[cite: 1]
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"My 10-year-old daughter attended their subsidized summer class and loved every minute of it. Thank you for making art so accessible!"[cite: 1]</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">C</div>
+                    <div class="author-info">
+                        <h4>Claire Moreau</h4>
+                        <span>Youth Class Parent</span>[cite: 1]
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I hadn't picked up a paintbrush since high school, but Elena made the whole process so easy and fun. I love my canvas!"[cite: 1]</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>Michelle Tremblay</h4>
+                        <span>Social Workshop Attendee</span>[cite: 1]
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"We commissioned Marcus Chen for an upcycled timber piece for our office lobby, and it completely transformed the space. Highly recommended!"[cite: 1]</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        <h4>Alex Andreou</h4>
+                        <span>Art Collector &amp; Client</span>[cite: 1]
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Booked a corporate team-building session for our company of 25 people. The setup, instruction, and atmosphere were top-notch from start to finish."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">D</div>
+                    <div class="author-info">
+                        <h4>David Park</h4>
+                        <span>Corporate Event Organizer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- GALLERY 1: SIP & PAINT GALLERY (9 ITEMS) -->
+    <main id="sip-paint-gallery" class="page-view">
+        <div class="section-header">
+            <h1>Sip &amp; Paint Gallery</h1>
+            <p>Explore candidate paintings for your upcoming workshop or check out past event highlights.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600" alt="Cherry Blossom Evening">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Cherry Blossom Evening</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Soft gradient background with bold floral brushwork.</p>
+                    <button onclick="requestArtwork('Class Selection: Cherry Blossom Evening')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600" alt="Neon City Skyline">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Neon City Skyline</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Vibrant acrylic painting exploring reflection and perspective.</p>
+                    <button onclick="requestArtwork('Class Selection: Neon City Skyline')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Sunset Horizons">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Sunset Horizons</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Warm color blending exercise with silhouette features.</p>
+                    <button onclick="requestArtwork('Class Selection: Sunset Horizons')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Cosmic Galaxy Drift">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Cosmic Galaxy Drift</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Splatter paint techniques and glowing nebulae.</p>
+                    <button onclick="requestArtwork('Class Selection: Cosmic Galaxy Drift')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600" alt="Tropical Botanical Palms">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Tropical Botanical Palms</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Lush greens and botanical layering techniques.</p>
+                    <button onclick="requestArtwork('Class Selection: Tropical Botanical Palms')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=600" alt="Ocean Wave Serenity">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Ocean Wave Serenity</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Seascape painting focusing on water motion and foam.</p>
+                    <button onclick="requestArtwork('Class Selection: Ocean Wave Serenity')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600" alt="Autumn Forest Path">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Autumn Forest Path</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Rich fall hues with depth and perspective training.</p>
+                    <button onclick="requestArtwork('Class Selection: Autumn Forest Path')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=600" alt="Starry Night Dreams">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Starry Night Dreams</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Swirling motion brushwork inspired by post-impressionism.</p>
+                    <button onclick="requestArtwork('Class Selection: Starry Night Dreams')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600" alt="Golden Mountain Glow">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
+                    <h3 style="margin: 0.3rem 0;">Golden Mountain Glow</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Geometric mountain shapes with metallic accent paint.</p>
+                    <button onclick="requestArtwork('Class Selection: Golden Mountain Glow')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- GALLERY 2: UPCYCLE FINE ART (9 ITEMS) -->
+    <main id="upcycle-art" class="page-view">
+        <div class="section-header">
+            <h1>Upcycle Fine Art Collection</h1>
+            <p>Discover sustainable, eco-conscious artwork created from reclaimed materials and mixed media.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600" alt="Reclaimed Wood Mosaic">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Mixed Media</span>
+                    <h3 style="margin: 0.3rem 0;">Reclaimed Timber Mosaic</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Architectural wall relief created from salvaged urban timber.</p>
+                    <button onclick="openUpcycleDetail('Reclaimed Timber Mosaic', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000', 'Mixed Media Wall Relief', 'Marcus Chen', 'marcus-chen', 'This piece reclaims weathered 19th-century pine and oak urban timber, hand-cut into geometric facets that reflect ambient room lighting.', '48 in x 36 in', 'Salvaged Pine & Oak, Brass Inlays', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Found Metal Assemblage">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Sculptural Wall Art</span>
+                    <h3 style="margin: 0.3rem 0;">Industrial Assemblage</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Crafted from discarded brass, copper wire, and vintage iron.</p>
+                    <button onclick="openUpcycleDetail('Industrial Assemblage', 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1000', 'Metal & Iron Sculpture', 'Marcus Chen', 'marcus-chen', 'An intricate tactile wall sculpture constructed from reclaimed copper wiring, industrial brass fittings, and vintage steel plates.', '36 in x 36 in', 'Copper, Brass, Vintage Iron', 'Private Gallery Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600" alt="Eco Paper Tapestry">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Textile & Paper</span>
+                    <h3 style="margin: 0.3rem 0;">Eco Paper Tapestry</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Woven from handmade recycled pulp and natural dyes.</p>
+                    <button onclick="openUpcycleDetail('Eco Paper Tapestry', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000', 'Recycled Fiber Art', 'Maya Lin', 'maya-lin', 'Formed entirely from 100% post-consumer discarded paper transformed into raw cotton-like pulp, dyed using organic botanical extracts.', '60 in x 40 in', 'Recycled Cotton Pulp, Indigo Dye', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600" alt="Salvaged Glass Fusion">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Glass & Light</span>
+                    <h3 style="margin: 0.3rem 0;">Salvaged Glass Fusion</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Upcycled bottles transformed into backlit stained glass panels.</p>
+                    <button onclick="openUpcycleDetail('Salvaged Glass Fusion', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1000', 'Glass Wall Installation', 'Marcus Chen', 'marcus-chen', 'Recycled beverage bottles kiln-fired and fused together into glowing translucent panels that react vividly to ambient indoor lighting.', '40 in x 30 in', 'Upcycled Kiln Glass, Steel Frame', 'Commission Available')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=600" alt="Denim & Canvas Mosaic">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Repurposed Fabric</span>
+                    <h3 style="margin: 0.3rem 0;">Denim & Canvas Mosaic</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Collaged textiles mounted on reclaimed barnwood panels.</p>
+                    <button onclick="openUpcycleDetail('Denim & Canvas Mosaic', 'https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=1000', 'Textile Collage', 'Maya Lin', 'maya-lin', 'Stripped denim and heavy industrial canvas scraps collected from garment workshops, stitched and layered over salvaged Canadian barnwood.', '48 in x 48 in', 'Upcycled Denim, Barnwood', 'Original Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600" alt="Vintage Ephemera Study">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Paper Ephemera</span>
+                    <h3 style="margin: 0.3rem 0;">Vintage Ephemera Study</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Layered 19th-century manuscript pages with ink wash overlays.</p>
+                    <button onclick="openUpcycleDetail('Vintage Ephemera Study', 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1000', 'Paper Mixed Media', 'Maya Lin', 'maya-lin', 'Rescued vintage ledgers and antique architectural blue-prints layered with Japanese sumi ink washes and gold leaf accents.', '30 in x 24 in', 'Historical Manuscripts, Gold Leaf', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=600" alt="Rust & Geometry">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Metalwork</span>
+                    <h3 style="margin: 0.3rem 0;">Rust & Geometry</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Free-standing geometric sculpture built from scrapped steel.</p>
+                    <button onclick="openUpcycleDetail('Rust & Geometry', 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=1000', '3D Steel Sculpture', 'Marcus Chen', 'marcus-chen', 'Free-standing balance sculpture constructed from recycled building structural steel beams, welded into dynamic angular forms with sealed patina finishes.', '64 in height', 'Scrapped Structural Steel', 'Studio Exhibition Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Coastal Driftwood Relief">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Natural Materials</span>
+                    <h3 style="margin: 0.3rem 0;">Coastal Driftwood Relief</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Gathered shoreline timber crafted into organic wall art.</p>
+                    <button onclick="openUpcycleDetail('Coastal Driftwood Relief', 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1000', 'Natural Wood Sculpture', 'Marcus Chen', 'marcus-chen', 'Foraged along Canadian shorelines, these smoothed driftwood pieces are arranged according to natural grain direction to depict undulating tide movements.', '52 in x 28 in', 'Foraged Shoreline Timber', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600" alt="Shattered Tile Mosaic">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Ceramic & Stone</span>
+                    <h3 style="margin: 0.3rem 0;">Shattered Tile Mosaic</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Salvaged construction tiles reset into dynamic abstract patterns.</p>
+                    <button onclick="openUpcycleDetail('Shattered Tile Mosaic', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1000', 'Ceramic Mosaic Panel', 'Marcus Chen', 'marcus-chen', 'Excess construction porcelain tiles shattered and manually pieced together into an abstract radial sunburst panel sealed in charcoal grout.', '36 in x 36 in', 'Salvaged Porcelain & Grout', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- OPTION 2: COMBINED PAGE (ARTWORK + ARTIST PROFILE STACKED TOGETHER) -->
+    <main id="upcycle-detail-page" class="page-view">
+        <div style="margin-bottom: 2rem;">
+            <button onclick="showPage('upcycle-art')" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem;">
+                &#8592; Back to Upcycle Fine Art Collection
+            </button>
+        </div>
+
+        <section class="combined-detail-container">
+            <!-- TOP HALF: ARTWORK DETAILED SPECIFICATIONS -->
+            <div class="artwork-primary-section">
+                <div>
+                    <img id="detail-artwork-img" src="" alt="Artwork Display" class="artwork-main-img">
+                </div>
+                <div>
+                    <span class="upcycle-badge" id="detail-artwork-category">Mixed Media Wall Relief</span>
+                    <h1 class="artwork-title" id="detail-artwork-title">Artwork Title</h1>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;" id="detail-artwork-desc">
+                        Artwork description and architectural notes go here.
+                    </p>
+
+                    <ul class="artwork-spec-list">
+                        <li class="spec-item">
+                            <label>Artist / Creator</label>
+                            <span id="detail-artist-name" style="color: var(--primary); font-weight: 700;">Artist Name</span>
+                        </li>
+                        <li class="spec-item">
+                            <label>Dimensions</label>
+                            <span id="detail-artwork-dims">48 in x 36 in</span>
+                        </li>
+                        <li class="spec-item">
+                            <label>Materials Used</label>
+                            <span id="detail-artwork-mats">Salvaged Materials</span>
+                        </li>
+                        <li class="spec-item">
+                            <label>Status / Availability</label>
+                            <span id="detail-artwork-status" style="color: #4caf50;">Original Piece (Available)</span>
+                        </li>
+                    </ul>
+
+                    <button id="inquire-art-btn" onclick="requestArtwork('Upcycle Fine Art Inquiry')" class="btn" style="width: 100%; font-size: 1.05rem; padding: 0.9rem;">
+                        Reserve / Inquire About This Piece
+                    </button>
+                </div>
+            </div>
+
+            <!-- BOTTOM HALF: ARTIST PROFILE & PHILOSOPHY INTEGRATED DIRECTLY -->
+            <div class="artist-secondary-section">
+                <div class="artist-profile-header">
+                    <img id="integrated-artist-photo" src="" alt="Artist Portrait" class="artist-profile-avatar">
+                    <div>
+                        <span style="color: var(--primary); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Artist Behind The Work</span>
+                        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.2rem;" id="integrated-artist-name">Artist Name</h2>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.8rem;" id="integrated-artist-role">Specialty Role</p>
+                        <p style="color: var(--text-light); font-style: italic; font-size: 1rem; line-height: 1.5;" id="integrated-artist-quote">
+                            "Artist quote statement."
+                        </p>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Biography &amp; Material Sourcing Philosophy</h3>
+                    <div style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;" id="integrated-artist-bio">
+                        <!-- Dynamically injected artist biography -->
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Sustainability Pillars &amp; Techniques</h3>
+                    <div class="features-grid" style="margin-bottom: 0;" id="integrated-artist-pillars">
+                        <!-- Dynamically injected feature boxes -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- GALLERY 3: STUDIO PHOTOGRAPHY (9 ITEMS) -->
+    <main id="photography" class="page-view">
+        <div class="section-header">
+            <h1>Studio Photography</h1>
+            <p>Professional portraiture, creative branding shoots, and event photography services.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Fine Art Portraits">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Portraiture</span>
+                    <h3 style="margin: 0.3rem 0;">Fine Art Portraits</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Expressive studio lighting and artistic creative direction.</p>
+                    <button onclick="requestArtwork('Studio Photography: Fine Art Portraits')" class="btn btn-outline" style="width: 100%;">Book Portrait Session</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Editorial Headshots">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Branding</span>
+                    <h3 style="margin: 0.3rem 0;">Editorial Headshots</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Modern branding headshots for artists, creatives, and executives.</p>
+                    <button onclick="requestArtwork('Studio Photography: Editorial Headshots')" class="btn btn-outline" style="width: 100%;">Book Session</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Event & Party Coverage">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Events</span>
+                    <h3 style="margin: 0.3rem 0;">Event & Party Coverage</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Candid, high-energy photojournalism for private celebrations.</p>
+                    <button onclick="requestArtwork('Studio Photography: Event Coverage')" class="btn btn-outline" style="width: 100%;">Inquire Event Rate</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600" alt="Chiaroscuro Studio Shoot">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Studio Lighting</span>
+                    <h3 style="margin: 0.3rem 0;">Chiaroscuro Studio Shoot</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Dramatic shadow-and-light portraiture sessions.</p>
+                    <button onclick="requestArtwork('Studio Photography: Chiaroscuro Shoot')" class="btn btn-outline" style="width: 100%;">Book Session</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600" alt="Artisan Product Stills">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Product & Still Life</span>
+                    <h3 style="margin: 0.3rem 0;">Artisan Product Stills</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Clean, textured product shots tailored for handmade brands.</p>
+                    <button onclick="requestArtwork('Studio Photography: Product Stills')" class="btn btn-outline" style="width: 100%;">Inquire Product Shoot</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Concept Fashion Editorial">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Fashion & Concept</span>
+                    <h3 style="margin: 0.3rem 0;">Concept Fashion Editorial</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Stylized fashion shoots with custom backdrop design.</p>
+                    <button onclick="requestArtwork('Studio Photography: Fashion Editorial')" class="btn btn-outline" style="width: 100%;">Book Fashion Shoot</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600" alt="Natural Light Portraits">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Outdoor & Location</span>
+                    <h3 style="margin: 0.3rem 0;">Natural Light Portraits</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Golden hour outdoor sessions in urban or park settings.</p>
+                    <button onclick="requestArtwork('Studio Photography: Natural Light Portraits')" class="btn btn-outline" style="width: 100%;">Book Outdoor Shoot</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600" alt="In-Studio Process Shots">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Artist Process</span>
+                    <h3 style="margin: 0.3rem 0;">In-Studio Process Shots</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Documenting artists and creators in their natural element.</p>
+                    <button onclick="requestArtwork('Studio Photography: Process Shots')" class="btn btn-outline" style="width: 100%;">Inquire Process Shoot</button>
+                </div>
+            </div>
+            <div class="media-card">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=600" alt="Couples & Duo Sessions">
+                <div class="media-body">
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Group & Couple</span>
+                    <h3 style="margin: 0.3rem 0;">Couples & Duo Sessions</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Intimate portraits capturing natural interactions and chemistry.</p>
+                    <button onclick="requestArtwork('Studio Photography: Duo Session')" class="btn btn-outline" style="width: 100%;">Book Duo Session</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- BOOKING PAGE (WEB3FORMS INTEGRATED) -->
+    <main id="booking-page" class="page-view">
+        <div class="section-header">
+            <h1>Inquire &amp; Book</h1>
+            <p>Send us a message to reserve a date, request an artwork selection, or schedule a custom event.</p>
+        </div>
+
+        <section class="booking-section">
+            <form id="contactForm">
+                <input type="hidden" name="access_key" value="a47dcffc-74c0-46f1-8d90-2ba21458491b">
+                <input type="hidden" name="subject" value="New Inquiry from Sip &amp; Strokes Canada Website">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="name" placeholder="Jane Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailAddr">Email Address</label>
+                    <input type="email" id="emailAddr" name="email" placeholder="jane@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="interestType">Service Interest</label>
+                    <select id="interestType" name="service_interest">
+                        <option value="Classic Sip &amp; Paint">Classic Sip &amp; Paint Session</option>
+                        <option value="VIP Private Party">VIP Private Party</option>
+                        <option value="Mobile Event">On-Location / Mobile Paint Event</option>
+                        <option value="Community / Youth Program">Community Event / Subsidized Youth Classes</option>
+                        <option value="Upcycle Art Commission">Upcycle Fine Art Purchase/Commission</option>
+                        <option value="Studio Photography">Studio Photography Session</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="requestedArtwork">Selected Theme / Program Title (Optional)</label>
+                    <input type="text" id="requestedArtwork" name="selected_theme" placeholder="e.g., Cherry Blossom Evening / Youth Summer Class">
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Preferred Event Date (If applicable)</label>
+                    <input type="date" id="eventDate" name="preferred_date">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message &amp; Details</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your event, estimated guest count, or youth registration inquiry..." required></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn" style="width: 100%;">Submit Inquiry</button>
+                <div id="form-status"></div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Direct Contact Details (Email & Phone) -->
+        <div class="footer-contact-details">
+            <a href="mailto:info@sipandstrokes.ca" class="footer-contact-item">
+                ✉️ info@sipandstrokes.ca
+            </a>
+            <a href="tel:+18005550199" class="footer-contact-item">
+                📞 +1 (800) 555-0199
+            </a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg>
+            </a>
+        </div>
+
+        <nav class="footer-nav">
+            <a onclick="showPage('home-page')">Home</a>
+            <a onclick="showPage('sip-and-paint')">Sip &amp; Paint</a>
+            <a onclick="showPage('sip-paint-gallery')">Sip &amp; Paint Gallery</a>
+            <a onclick="showPage('upcycle-art')">Upcycle Fine Art</a>
+            <a onclick="showPage('photography')">Studio Photography</a>
+            <a onclick="showPage('about-page')">About Us</a>
+            <a onclick="showPage('testimonials-page')">Testimonials</a>
+            <a onclick="showPage('booking-page')">Inquire / Book</a>
+        </nav>
+
+        <p>&copy; 2026 Sip &amp; Strokes Canada. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Database of Upcycle Fine Artists
+        const ARTISTS = {
+            'marcus-chen': {
+                name: 'Marcus Chen',
+                role: 'Reclaimed Timber & Structural Steel Sculptor',
+                photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+                quote: '"My work is rooted in the belief that forgotten materials possess their own historical resonance. By breathing new life into discarded industrial brass, architectural steel, and salvaged Canadian urban timber, I aim to bridge environmental sustainability with high-end fine art."',
+                bio: [
+                    "With a background in architectural design and sculpture, Marcus Chen has spent over 12 years perfecting sustainable art construction. Based in Canada, Marcus collaborates with local restoration crews, historic building demolitions, and urban arborists to hand-select materials that would otherwise end up in landfills.",
+                    "Each piece in his collection undergoes a meticulous multi-step restoration process: cleaning, hand-shaping, stabilizing, and sealing without toxic chemical lacquers. From 19th-century pine joists restored into geometric wall reliefs to salvaged copper wires woven into tactile tapestries, his works celebrate industrial history and environmental stewardship."
+                ],
+                pillars: [
+                    { icon: '🪵', title: 'Salvaged Urban Timber', desc: 'Reclaimed pine, oak, and maple sourced from historic Canadian building renovations.' },
+                    { icon: '⚙️', title: 'Reclaimed Metals', desc: 'Vintage brass fittings, oxidized steel beams, and copper wire stripped and repurposed.' },
+                    { icon: '🌿', title: 'Zero-VOC Sealing', desc: 'Finished with organic natural plant oils, beeswax, and eco-conscious non-toxic sealants.' }
+                ]
+            },
+            'maya-lin': {
+                name: 'Maya Lin',
+                role: 'Recycled Fiber & Natural Dye Weaver',
+                photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800',
+                quote: '"Textiles carry tactile memories. Upcycling post-consumer cotton, discarded linen, and scrap paper allows us to transform textile waste into soft, soul-restoring architectural wall installations."',
+                bio: [
+                    "Maya Lin brings a decade of sustainable textile exploration to Sip & Strokes Canada. Specializing in zero-waste fiber art, Maya gathers discarded garments, canvas scraps, and post-consumer pulp paper from local Canadian artisans.",
+                    "Using traditional hand-weaving looms and non-toxic botanical dyes derived from avocado seeds, indigo leaves, and marigolds, she creates textured tapestries that bring organic warmth into modern interior spaces."
+                ],
+                pillars: [
+                    { icon: '🧶', title: '100% Recycled Fibers', desc: 'Post-consumer denim, industrial canvas scraps, and handmade paper pulp.' },
+                    { icon: '🌸', title: 'Botanical Natural Dyes', desc: 'Colored naturally using organic botanical extracts, indigo, and plant roots.' },
+                    { icon: '🧵', title: 'Zero-Waste Weaving', desc: 'Every single thread scrap is reused in textural accent stitching.' }
+                ]
+            }
+        };
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.remove('active-page'));
+
+            const activeTarget = document.getElementById(pageId);
+            if (activeTarget) {
+                activeTarget.classList.add('active-page');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // OPTION 2 INTEGRATED ENGINE: POPULATES ARTWORK AND CORRESPONDING ARTIST DIRECTLY ON SAME VIEW
+        function openUpcycleDetail(title, imgUrl, category, artistName, artistId, desc, dims, mats, status) {
+            // Populate Artwork Specs (Top Half)
+            document.getElementById('detail-artwork-title').textContent = title;
+            document.getElementById('detail-artwork-img').src = imgUrl;
+            document.getElementById('detail-artwork-category').textContent = category;
+            document.getElementById('detail-artist-name').textContent = artistName;
+            document.getElementById('detail-artwork-desc').textContent = desc;
+            document.getElementById('detail-artwork-dims').textContent = dims;
+            document.getElementById('detail-artwork-mats').textContent = mats;
+            document.getElementById('detail-artwork-status').textContent = status;
+            
+            document.getElementById('inquire-art-btn').onclick = function() {
+                requestArtwork('Upcycle Fine Art Inquiry: ' + title);
+            };
+
+            // Populate Artist Profile Directly Below (Bottom Half)
+            const artistData = ARTISTS[artistId] || ARTISTS['marcus-chen'];
+            document.getElementById('integrated-artist-photo').src = artistData.photo;
+            document.getElementById('integrated-artist-name').textContent = artistData.name;
+            document.getElementById('integrated-artist-role').textContent = artistData.role;
+            document.getElementById('integrated-artist-quote').textContent = artistData.quote;
+
+            // Inject Bio Paragraphs
+            const bioContainer = document.getElementById('integrated-artist-bio');
+            bioContainer.innerHTML = artistData.bio.map(p => `<p style="margin-bottom: 0.8rem;">${p}</p>`).join('');
+
+            // Inject Pillar Cards
+            const pillarsContainer = document.getElementById('integrated-artist-pillars');
+            pillarsContainer.innerHTML = artistData.pillars.map(pillar => `
+                <div class="feature-item" style="text-align: left; padding: 1.2rem;">
+                    <span class="feature-icon" style="font-size: 1.6rem;">${pillar.icon}</span>
+                    <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">${pillar.title}</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">${pillar.desc}</p>
+                </div>
+            `).join('');
+
+            showPage('upcycle-detail-page');
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            const burger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('active');
+        }
+
+        function requestArtwork(title) {
+            showPage('booking-page');
+            const artworkInput = document.getElementById('requestedArtwork');
+            if (artworkInput) {
+                artworkInput.value = title;
+            }
+        }
+
+        // Web3Forms AJAX Form Processing with 3.5s Homepage Redirect
+        const form = document.getElementById('contactForm');
+        const statusDiv = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusDiv.style.display = 'block';
+            statusDiv.style.backgroundColor = '#1c1c20';
+            statusDiv.style.color = '#a1a1aa';
+            statusDiv.textContent = 'Submitting your inquiry...';
+
+            const formData = new FormData(form);
+            const json = JSON.stringify(Object.fromEntries(formData));
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status === 200) {
+                    statusDiv.style.backgroundColor = 'rgba(46, 125, 50, 0.2)';
+                    statusDiv.style.color = '#4caf50';
+                    statusDiv.textContent = 'Thank you! Your inquiry has been sent successfully. Redirecting to home page...';
+                    form.reset();
+
+                    setTimeout(() => {
+                        showPage('home-page');
+                        statusDiv.style.display = 'none';
+                    }, 3500);
+                } else {
+                    statusDiv.style.backgroundColor = 'rgba(198, 40, 40, 0.2)';
+                    statusDiv.style.color = '#ef5350';
+                    statusDiv.textContent = res.message || 'Something went wrong. Please check your Access Key.';
+                }
+            })
+            .catch(error => {
+                statusDiv.style.backgroundColor = 'rgba(198, 40, 40, 0.2)';
+                statusDiv.style.color = '#ef5350';
+                statusDiv.textContent = 'Unable to send message. Please try again later.';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Inquiry';
+            });
+        });
+    </script>
+</body>
+</html>
