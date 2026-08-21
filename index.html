@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sip & Strokes Canada | Creative Studio & Events</title>
+    <title>Sip & Strokes Canada | Multi-Disciplinary Creative Studio & Events</title>
     <style>
         :root {
             --primary: #e63946;
@@ -49,7 +49,7 @@
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.4rem;
             list-style: none;
             align-items: center;
         }
@@ -58,70 +58,13 @@
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--primary);
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-btn {
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .dropdown-btn:hover {
-            color: var(--primary);
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--card-bg);
-            min-width: 220px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            z-index: 1001;
-        }
-
-        .dropdown-menu a {
-            color: var(--text-light);
-            padding: 0.8rem 1.2rem;
-            display: block;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: var(--dark-bg);
-            color: var(--primary);
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
         }
 
         /* Mobile Hamburger Menu */
@@ -168,7 +111,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 1.8rem;
+            gap: 1.5rem;
             backdrop-filter: blur(12px);
         }
 
@@ -178,7 +121,7 @@
 
         .mobile-nav-overlay a, .mobile-nav-overlay button {
             color: var(--text-light);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
             background: none;
@@ -189,15 +132,6 @@
 
         .mobile-nav-overlay a:hover, .mobile-nav-overlay button:hover {
             color: var(--primary);
-        }
-
-        .mobile-dropdown-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem !important;
-            color: var(--text-muted) !important;
         }
 
         /* Buttons */
@@ -660,7 +594,7 @@
             padding: 1.2rem;
         }
 
-        /* OPTION 2 COMBINED PAGE STYLES (WORK + ARTIST TOGETHER) */
+        /* COMBINED PAGE STYLES (WORK + SINGLE ARTIST PROFILE TOGETHER) */
         .combined-detail-container {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -880,8 +814,8 @@
         .footer-nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin: 0 0.8rem;
-            font-size: 0.95rem;
+            margin: 0 0.6rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: color 0.3s;
         }
@@ -890,7 +824,7 @@
             color: var(--primary);
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .hero-title { font-size: 2.3rem; }
             .about-section { grid-template-columns: 1fr; }
             .artwork-primary-section { grid-template-columns: 1fr; }
@@ -915,7 +849,7 @@
                     SIP <span style="color: var(--primary);">&amp;</span> STROKES
                 </span>
                 <span style="font-size: 0.65rem; color: #a0a0a0; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px;">
-                    Studio &amp; Events
+                    Creative Studio &amp; Mobile Events
                 </span>
             </span>
         </a>
@@ -923,17 +857,11 @@
         <ul class="nav-links">
             <li><a onclick="showPage('home-page')">Home</a></li>
             <li><a onclick="showPage('sip-and-paint')">Sip &amp; Paint</a></li>
-            <li class="dropdown">
-                <button class="dropdown-btn">Galleries &#9662;</button>
-                <div class="dropdown-menu">
-                    <a onclick="showPage('sip-paint-gallery')">Sip &amp; Paint Gallery</a>
-                    <a onclick="showPage('upcycle-art')">Upcycle Fine Art</a>
-                    <a onclick="showPage('photography')">Studio Photography</a>
-                </div>
-            </li>
+            <li><a onclick="showPage('sip-paint-gallery')">Sip &amp; Paint Gallery</a></li>
+            <li><a onclick="showPage('upcycle-art')">Upcycle / Visual Art</a></li>
+            <li><a onclick="showPage('photography')">Studio Photography</a></li>
             <li><a onclick="showPage('about-page')">About Us</a></li>
             <li><a onclick="showPage('testimonials-page')">Testimonials</a></li>
-            <li><a onclick="showPage('booking-page')">Inquire / Book</a></li>
         </ul>
         <div style="display: flex; align-items: center; gap: 1rem;">
             <a onclick="showPage('booking-page')" class="btn" style="display: inline-block;">Inquire Now</a>
@@ -949,23 +877,20 @@
     <div class="mobile-nav-overlay" id="mobileNav">
         <a onclick="showPage('home-page'); toggleMobileMenu();">Home</a>
         <a onclick="showPage('sip-and-paint'); toggleMobileMenu();">Sip &amp; Paint</a>
-        <div class="mobile-dropdown-links">
-            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">Galleries</span>
-            <a onclick="showPage('sip-paint-gallery'); toggleMobileMenu();" style="font-size: 1.1rem;">Sip &amp; Paint Gallery</a>
-            <a onclick="showPage('upcycle-art'); toggleMobileMenu();" style="font-size: 1.1rem;">Upcycle Fine Art</a>
-            <a onclick="showPage('photography'); toggleMobileMenu();" style="font-size: 1.1rem;">Studio Photography</a>
-        </div>
+        <a onclick="showPage('sip-paint-gallery'); toggleMobileMenu();">Sip &amp; Paint Gallery</a>
+        <a onclick="showPage('upcycle-art'); toggleMobileMenu();">Upcycle / Visual Art</a>
+        <a onclick="showPage('photography'); toggleMobileMenu();">Studio Photography</a>
         <a onclick="showPage('about-page'); toggleMobileMenu();">About Us</a>
         <a onclick="showPage('testimonials-page'); toggleMobileMenu();">Testimonials</a>
-        <a onclick="showPage('booking-page'); toggleMobileMenu();">Inquire / Book</a>
+        <a onclick="showPage('booking-page'); toggleMobileMenu();">Inquire / Partner</a>
     </div>
 
-    <!-- PAGE 1: GENERIC HOMEPAGE -->
+    <!-- PAGE 1: FULLY GENERIC HOMEPAGE -->
     <main id="home-page" class="page-view active-page">
         <section class="hero-banner">
             <div class="hero-content">
                 <h1 class="hero-title">Where Artistry, Social Connection &amp; Sustainable Design Meet</h1>
-                <p class="hero-subtitle">Welcome to Sip &amp; Strokes Canada—your multi-disciplinary creative hub for guided paint events, eco-conscious upcycled fine art, and studio photography.</p>
+                <p class="hero-subtitle">Welcome to Sip &amp; Strokes Canada—your comprehensive creative hub uniting mobile pop-up events, eco-conscious fine art collections, and professional studio photography.</p>
                 <div class="hero-actions">
                     <button onclick="showPage('booking-page')" class="btn">Inquire / Book Service</button>
                     <button onclick="showPage('about-page')" class="btn btn-outline">Learn About Us</button>
@@ -980,13 +905,13 @@
 
         <section class="aspects-grid">
             <div class="aspect-card">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Sip and Paint Sessions" class="aspect-img">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Mobile Sip and Paint Sessions" class="aspect-img">
                 <div class="aspect-body">
                     <div>
-                        <span class="aspect-badge">Social Events &amp; Giving Back</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Sip &amp; Paint Workshops</h3>
+                        <span class="aspect-badge">Mobile Pop-Up &amp; Collaborations</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Mobile Sip &amp; Paint</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                            BYOB step-by-step social paint workshops, private party events, free community gatherings, and youth summer art classes.
+                            Pop-up social painting sessions hosted on-location at hotels, resorts, community hubs, charitable sponsored events, and summer youth classes.
                         </p>
                     </div>
                     <button onclick="showPage('sip-and-paint')" class="btn" style="width: 100%;">Explore Sip &amp; Paint Page</button>
@@ -994,16 +919,16 @@
             </div>
 
             <div class="aspect-card">
-                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800" alt="Upcycle Fine Art" class="aspect-img">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800" alt="Upcycle / Visual Art" class="aspect-img">
                 <div class="aspect-body">
                     <div>
                         <span class="aspect-badge">Sustainable Fine Art</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Upcycle Fine Art</h3>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Upcycle / Visual Art</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                            Original wall sculptures and mixed media artwork created from reclaimed urban timber, brass, and recycled materials.
+                            Original wall sculptures and mixed media artwork created from reclaimed urban timber, brass, and recycled materials by our lead artist.
                         </p>
                     </div>
-                    <button onclick="showPage('upcycle-art')" class="btn btn-outline" style="width: 100%;">View Upcycle Gallery</button>
+                    <button onclick="showPage('upcycle-art')" class="btn btn-outline" style="width: 100%;">View Gallery &amp; Bio</button>
                 </div>
             </div>
 
@@ -1025,248 +950,201 @@
         <section class="features-grid">
             <div class="feature-item">
                 <span class="feature-icon">🎨</span>
-                <h3>Expert Guidance</h3>
-                <p>Guided by professional Canadian artists across fine painting, sculpting, and studio photography.</p>
+                <h3>Multi-Disciplinary Studio</h3>
+                <p>Bringing together fine painting, sustainable sculpture, and professional media arts under one creative umbrella.</p>
             </div>
             <div class="feature-item">
-                <span class="feature-icon">🤝</span>
-                <h3>Community Impact</h3>
-                <p>Hosting free community events and subsidized summer youth programs to keep art accessible to everyone.</p>
+                <span class="feature-icon">🌱</span>
+                <h3>Eco-Conscious Focus</h3>
+                <p>Dedicated to sustainable practices, upcycled art commissions, and eco-friendly studio materials.</p>
             </div>
             <div class="feature-item">
                 <span class="feature-icon">✨</span>
-                <h3>Custom Experiences</h3>
-                <p>Tailored booking packages for private birthdays, corporate retreats, and artwork commissions.</p>
+                <h3>Tailored Experiences</h3>
+                <p>Custom booking packages for private events, hotel activations, portrait sessions, and art collections.</p>
             </div>
         </section>
     </main>
 
     <!-- PAGE 2: DEDICATED SIP & PAINT PAGE -->
     <main id="sip-and-paint" class="page-view">
-        <section class="hero-banner">
+        <section class="hero-banner" style="background: linear-gradient(rgba(17, 17, 19, 0.75), rgba(17, 17, 19, 0.9)), url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1600') center/cover no-repeat;">
             <div class="hero-content">
-                <h1 class="hero-title">Unleash Your Creativity, One Sip at a Time</h1>
-                <p class="hero-subtitle">Guided social painting workshops, private parties, free community gatherings, and youth creative programs.</p>
+                <h1 class="hero-title">Mobile Sip &amp; Paint Experiences</h1>
+                <p class="hero-subtitle">We bring the full art studio to hotels, community centers, outdoor venues, charitable fundraisers, and youth programs across Canada.</p>
                 <div class="hero-actions">
-                    <button onclick="showPage('booking-page')" class="btn">Inquire / Book Session</button>
-                    <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Paint Gallery</button>
+                    <button onclick="showPage('booking-page')" class="btn">Partner / Book an Event</button>
+                    <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Event Gallery</button>
                 </div>
             </div>
         </section>
 
         <div class="about-section">
             <div class="about-content">
-                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Our Mission &amp; Community Impact</span>
-                <h2>Art, Connection &amp; Giving Back</h2>
+                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Our Mobile Pop-Up &amp; Community Mission</span>
+                <h2>Art Anywhere: Mobile Workshops, Charitable Events &amp; Youth Programs</h2>
                 <p>
-                    Founded in the heart of our vibrant artistic community, Sip &amp; Strokes was born out of a desire to make fine art creation accessible, engaging, and deeply social for everyone. We believe that creativity isn't reserved exclusively for seasoned artists—it is an innate form of human expression waiting to be unlocked.
+                    Sip &amp; Strokes Canada is a 100% mobile paint studio. Instead of requiring guests to visit a static physical building, we specialize in bringing top-tier art experiences directly to where people naturally gather—hotel lounges, rooftop patios, community halls, corporate offices, and private backyard settings.
                 </p>
                 <p>
-                    Our guided painting workshops seamlessly blend step-by-step artistic instruction with a relaxed, celebratory social environment. Combined with your favorite beverages, great music, and friendly company, we turn every gathering into a memorable creative experience.
-                </p>
-                <p>
-                    Deeply rooted in the community we call home, we are equally committed to giving back and nurturing the next generation of creators. To ensure art remains accessible to all, we host free community events throughout the year and run subsidized summer creative classes for youth aged 6 to 16. By offering affordable, inspiring programs for young artists and open spaces for neighbors to connect, we strive to keep our local culture vibrant, inclusive, and growing.
+                    Beyond commercial gatherings, we are deeply committed to social impact. We regularly organize <strong>charitable and sponsored events</strong> to raise funds and awareness for local causes, while also offering dedicated <strong>subsidized youth summer classes for ages 6 to 16</strong>. We provide a complete pop-up setup with portable easels, protective coverings, canvases, brushes, and paints so every participant can enjoy a seamless, inspiring experience.
                 </p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800" alt="Sip and Paint Community Experience">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800" alt="Mobile Pop Up Paint Setup">
             </div>
         </div>
 
+        <!-- COLLABORATION, CHARITY & YOUTH SECTION -->
         <div class="section-header">
-            <h2>Ways We Give Back</h2>
-            <p>Empowering our neighborhood through free events and affordable youth art education.</p>
+            <h2>Community Impact &amp; Venue Collaborations</h2>
+            <p>Empowering neighborhoods through charity partnerships, hotel activations, and youth art education.</p>
         </div>
 
-        <section class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-bottom: 4rem;">
-            <div class="feature-item" style="text-align: left; padding: 2.2rem; border-top: 4px solid var(--primary);">
-                <span class="feature-icon" style="font-size: 2.5rem;">🎉</span>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Free Community Events</h3>
-                <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
-                    Inclusive artistic gatherings designed to bring neighbors together through music, light instruction, and shared fun. Everyone in the community is welcome to participate!
+        <section class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 4rem;">
+            <div class="feature-item" style="text-align: left; padding: 2rem; border-top: 4px solid var(--primary);">
+                <span class="feature-icon" style="font-size: 2.2rem;">🏨</span>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.8rem;">Hotel &amp; Resort Activations</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                    Offer your guests unique weekend workshops, poolside sip-and-paint evenings, or private VIP experiences without taking on extra staff or setup burden.
                 </p>
-                <button onclick="requestArtwork('Community Event Inquiry')" class="btn btn-outline" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Inquire Next Event</button>
+                <button onclick="requestArtwork('Hotel &amp; Resort Partnership Inquiry')" class="btn" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Inquire Hotel Partnership</button>
             </div>
 
-            <div class="feature-item" style="text-align: left; padding: 2.2rem; border-top: 4px solid var(--primary);">
-                <span class="feature-icon" style="font-size: 2.5rem;">🎨</span>
-                <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Subsidized Youth Summer Classes</h3>
-                <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
-                    High-quality art workshops for ages 6–16 offered at a fraction of the cost, making summer creative enrichment affordable and inspiring for every family.
+            <div class="feature-item" style="text-align: left; padding: 2rem; border-top: 4px solid var(--primary);">
+                <span class="feature-icon" style="font-size: 2.2rem;">🤝</span>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.8rem;">Charitable &amp; Sponsored Events</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                    Partner with us for corporate-sponsored fundraisers and community paint nights that direct proceeds back to non-profit causes and neighborhood projects.
                 </p>
-                <button onclick="requestArtwork('Youth Summer Program Registration')" class="btn" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Youth Class Details</button>
+                <button onclick="requestArtwork('Charitable Event Inquiry')" class="btn btn-outline" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Inquire Charity Event</button>
+            </div>
+
+            <div class="feature-item" style="text-align: left; padding: 2rem; border-top: 4px solid var(--primary);">
+                <span class="feature-icon" style="font-size: 2.2rem;">🎨</span>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.8rem;">Summer Youth Classes (Ages 6–16)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                    Subsidized youth summer creative workshops running throughout July and August, helping young minds explore color, technique, and creative confidence.
+                </p>
+                <button onclick="requestArtwork('Youth Summer Program Registration')" class="btn" style="margin-top: 1.2rem; font-size: 0.85rem; padding: 0.5rem 1rem;">Youth Program Details</button>
             </div>
         </section>
 
         <div class="section-header">
-            <h2>Experience Packages</h2>
-            <p>Guided social painting sessions for private parties, corporate events, and public workshops.</p>
+            <h2>Mobile Event Packages</h2>
+            <p>Flexible pop-up session packages designed for private celebrations, venue collaborations, and corporate gatherings.</p>
         </div>
 
         <div class="packages-grid">
             <div class="package-card">
                 <div>
-                    <h3>Classic Social Session</h3>
+                    <h3>Pop-Up Guest Event</h3>
                     <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">$35 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ guest</span></div>
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">All supplies, canvas, and 2 hours of step-by-step studio instruction included.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Ideal for public pop-ups at partnered restaurants, cafes, and community spaces. All supplies provided.</p>
                 </div>
-                <button onclick="requestArtwork('Classic Sip &amp; Paint Event')" class="btn btn-outline">Inquire to Book</button>
+                <button onclick="requestArtwork('Pop-Up Guest Event')" class="btn btn-outline">Inquire Pop-Up Event</button>
             </div>
 
             <div class="package-card" style="border: 2px solid var(--primary);">
                 <div>
-                    <h3>VIP Private Party</h3>
-                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">$50 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ guest</span></div>
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Custom theme selection, stretched canvas, dedicated assistant, and full studio access.</p>
+                    <h3>Hotel &amp; Private Venue Package</h3>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">Custom / Shared</div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Turnkey partnership model with profit-sharing or flat-rate options tailored specifically for hotel guests or private venue hosts.</p>
                 </div>
-                <button onclick="requestArtwork('VIP Sip &amp; Paint Party')" class="btn">Inquire VIP Party</button>
+                <button onclick="requestArtwork('Hotel / Venue Collaboration Request')" class="btn">Inquire Partnership</button>
             </div>
 
             <div class="package-card">
                 <div>
-                    <h3>On-Location / Mobile</h3>
-                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">Custom Quote</div>
-                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Full mobile paint studio setup at your venue or corporate office space.</p>
+                    <h3>Private Mobile Party</h3>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">$50 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ guest</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">Full mobile paint setup delivered directly to your home, backyard, or rented celebration hall.</p>
                 </div>
-                <button onclick="requestArtwork('Mobile Sip &amp; Paint Request')" class="btn btn-outline">Inquire Mobile Quote</button>
+                <button onclick="requestArtwork('Private Mobile Party Request')" class="btn btn-outline">Book Private Mobile Party</button>
             </div>
         </div>
 
+        <!-- SPOTLIGHT -->
         <div class="photo-spotlight">
-            <h2>Moments From Our Sessions &amp; Community Days</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 1.5rem;">Get a glimpse of the fun, artistic creations, and lively atmosphere in our sessions.</p>
-            <div class="photo-strip-grid">
-                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=500" alt="Preview 1"></div>
-                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500" alt="Preview 2"></div>
-                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500" alt="Preview 3"></div>
-                <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500" alt="Preview 4"></div>
+            <h2>Pop-Up Event Highlights</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 1.5rem;">Snapshots of our mobile setup, guest interactions, and vibrant social gatherings in action.</p>
+            <div class="photo-strip-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                <div class="photo-strip-item">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Event Action 1">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Event Action 2">
+                </div>
+                <div class="photo-strip-item">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Event Action 3">
+                </div>
             </div>
-            <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Full Paint Gallery</button>
+            <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Full Event Gallery</button>
         </div>
 
         <div class="section-header">
             <h2>Frequently Asked Questions</h2>
-            <p>Everything you need to know before attending, booking, or joining our studio community.</p>
+            <p>Everything venue partners, parents, and hosts need to know about our mobile paint pop-ups.</p>
         </div>
 
         <div class="faq-section">
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do I need any prior painting experience?</span>
+                    <span>How does a mobile paint event work at our hotel or venue?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    Absolute beginners are welcome! Our sessions are step-by-step guided by expert instructor artists. We break down every painting into easy, fun steps so you leave with a finished canvas you'll be proud of.
+                    We arrive 45 minutes prior to the scheduled start time with all necessary materials (easels, canvases, paints, brushes, aprons, and table protection). We handle full setup, guided instruction, and total clean-up afterward.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>What is your BYOB policy? What should I bring?</span>
+                    <span>How do your Subsidized Youth Summer Classes work for ages 6 to 16?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    Guests are welcome to bring their choice of wine, beer, or non-alcoholic beverages, along with light finger foods or snacks. We provide ice, wine openers, cups, and napkins for your convenience.
+                    Our youth summer creative programs run throughout July and August. Registration opens each spring on a first-come, first-served basis with subsidized tuition options for local families. Use our contact form to get on the alert list!
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>What supplies are included with my booking?</span>
+                    <span>Can we partner on a charitable or sponsored fundraising event?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    We provide everything required to create your masterpiece: aprons, easels, canvases, acrylic paints, brushes, and palette setups. All you need to bring is your enthusiasm (and drinks)!
+                    Absolutely! We collaborate with non-profits, local charities, and corporate sponsors to organize fundraising paint nights where ticket proceeds go directly toward supporting community causes.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>How do your Subsidized Youth Summer Classes work?</span>
+                    <span>What does the host venue need to provide?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    Our youth summer creative programs (ages 6–16) run throughout July and August. Registration opens each spring on a first-come, first-served basis with subsidized tuition options for local families. Use our booking form to join the alert list!
+                    All we need from the host venue are adequate tables and chairs for guests, access to a water source for brush rinsing, and adequate lighting!
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Are Free Community Events open to everyone?</span>
+                    <span>Can we request custom painting themes matching our venue vibe?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    Yes! Our free community gatherings are designed to make art inclusive for all neighbors. While tickets are free, space is limited—so we recommend reserving your spot online as soon as event dates are announced.
+                    Yes! We can create custom painting concepts tailored to your venue—such as coastal themes for waterfront resorts, urban skylines for boutique hotels, or seasonal motifs.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Can I host a private party or corporate event?</span>
+                    <span>What is your group size capacity for mobile events?</span>
                     <span class="faq-toggle-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    Yes! We host private birthday parties, bachelorette celebrations, corporate team-building events, and mobile on-location workshops. Use our online booking form to inquire about date availability and custom themes.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>What should I wear to a painting session?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    We provide protective aprons for all guests, but acrylic paint can be stubborn if it gets on fabric. We recommend wearing comfortable, casual clothes that you wouldn't mind getting a small paint splash on!
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>What happens if I am late for a session?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    We recommend arriving 15 minutes before your session start time to grab a drink and settle in. If you run a few minutes late, our studio assistants will help you catch up without interrupting the class flow!
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Can I customize the painting colors or design during class?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    Absolutely! While our instructor guides the group through the featured image step by step, we encourage individual creativity. Feel free to change color palettes, add personal details, or paint whatever inspires you.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Can guests book together to sit as a group?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    Yes! If your party is purchasing tickets separately, simply note your group or organizer name in the booking form when reserving, and we will ensure your group is seated together at the same painting station.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>What is your cancellation and rescheduling policy?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    Individual bookings can be rescheduled up to 48 hours prior to the event start time. For VIP private events, deposits are refundable up to 7 days before your scheduled date.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do you offer mobile / on-location paint parties?</span>
-                    <span class="faq-toggle-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    Yes! We bring the full Sip &amp; Strokes studio setup directly to your office, venue, or outdoor space. We provide all easels, drop cloths, brushes, and paints. All you need to provide are tables and chairs!
+                    We can accommodate intimate groups of 10 up to large corporate or community gatherings of 50+ guests depending on the space available at your location.
                 </div>
             </div>
         </div>
@@ -1276,74 +1154,60 @@
     <main id="about-page" class="page-view">
         <div class="section-header">
             <h1>About Us</h1>
-            <p>Meet the passionate creative team inspiring artistic expression across Canada.</p>
+            <p>Meet the passionate creative team inspiring mobile artistic expression across Canada.</p>
         </div>
 
         <div class="about-section">
             <div class="about-content">
-                <h2>Our Story &amp; Philosophy</h2>
-                <p>Sip &amp; Strokes Canada was established with a singular mission: to bring art, relaxation, and genuine human connection back into daily life. We transform ordinary evenings into extraordinary social celebrations where guests learn new artistic techniques without pressure.</p>
-                <p>From fine art commissions and youth programs to community workshops, our multi-disciplinary studio brings color, joy, and collaborative energy to every project we touch.</p>
+                <h2>Our Story &amp; Mobile Philosophy</h2>
+                <p>Sip &amp; Strokes Canada was established with a singular mission: to bring art, relaxation, and genuine human connection directly into communities, hotels, and vibrant local spaces. By removing the boundaries of a traditional static brick-and-mortar studio, we take creative experiences anywhere people gather.</p>
+                <p>From fine art commissions and youth summer programs (ages 6–16) to charitable fundraising and hotel activations, our team brings color, joy, and collaborative energy to every venue we partner with.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Studio Space">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Mobile Art Studio Setup">
             </div>
         </div>
 
         <div class="section-header" style="margin-top: 2rem;">
             <h2>Our Core Values</h2>
-            <p>What drives our studio, instructors, and community every single day.</p>
+            <p>What drives our mobile studio, instructors, and venue partnerships every single day.</p>
         </div>
 
         <section class="features-grid" style="margin-bottom: 4rem;">
             <div class="feature-item">
                 <span class="feature-icon">🌱</span>
                 <h3>Eco-Conscious Artistry</h3>
-                <p>We actively reduce studio waste by sourcing reclaimed materials, upcycling textiles, and using eco-friendly paints.</p>
+                <p>We actively reduce waste by sourcing reclaimed materials, upcycling textiles, and using eco-friendly paints.</p>
             </div>
             <div class="feature-item">
                 <span class="feature-icon">🤝</span>
-                <h3>Inclusive Workshops</h3>
+                <h3>Inclusive Pop-Ups</h3>
                 <p>Art is for everyone. We foster a judgment-free, encouraging atmosphere for beginners and seasoned creators alike.</p>
             </div>
             <div class="feature-item">
                 <span class="feature-icon">💡</span>
                 <h3>Community-Driven</h3>
-                <p>Partnering with local Canadian artisans, hosting free neighborhood events, and running subsidized youth art programs.</p>
+                <p>Partnering with local Canadian hotels, venues, charities, and community centers to keep art accessible everywhere.</p>
             </div>
             <div class="feature-item">
                 <span class="feature-icon">✨</span>
-                <h3>Uncompromising Quality</h3>
-                <p>From high-grade stretched canvases to professional instructors, every detail is crafted for an extraordinary experience.</p>
+                <h3>Seamless Clean Setup</h3>
+                <p>We respect our host venues, leaving every event space as clean and spotless as we found it.</p>
             </div>
         </section>
 
         <div class="section-header">
-            <h2>Resident Artists &amp; Instructors</h2>
-            <p>Guided by seasoned professionals in fine art, illustration, and photography.</p>
+            <h2>Lead Artist &amp; Studio Director</h2>
+            <p>Guided by your vision in fine art, upcycling, illustration, and photography.</p>
         </div>
 
-        <div class="artists-grid">
+        <div class="artists-grid" style="max-width: 450px; margin: 0 auto 4rem;">
             <div class="artist-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Elena Vance Profile">
-                <h3>Elena Vance</h3>
-                <span class="artist-role">Lead Instructor &amp; Studio Director</span>
-                <p style="margin-bottom: 1.2rem;">Over 10 years of experience leading social painting events, youth summer workshops, and fine art events across Canada.</p>
-                <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Workshop Gallery</button>
-            </div>
-            <div class="artist-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Marcus Chen Profile">
-                <h3>Marcus Chen</h3>
-                <span class="artist-role">Upcycle Sculptor &amp; Designer</span>
-                <p style="margin-bottom: 1.2rem;">Specializes in eco-conscious mixed media sculptures and reclaimed timber architectural panels.</p>
-                <button onclick="openUpcycleDetail('Reclaimed Timber Mosaic', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000', 'Mixed Media Wall Relief', 'Marcus Chen', 'marcus-chen', 'This piece reclaims weathered 19th-century pine and oak urban timber, hand-cut into geometric facets.', '48 in x 36 in', 'Salvaged Pine & Oak', 'Original Piece (Available)')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Work &amp; Bio</button>
-            </div>
-            <div class="artist-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" alt="Maya Lin Profile">
-                <h3>Maya Lin</h3>
-                <span class="artist-role">Eco Textile &amp; Fiber Artist</span>
-                <p style="margin-bottom: 1.2rem;">Master weaver transforming post-consumer natural textiles and paper into tactile wall hangings.</p>
-                <button onclick="openUpcycleDetail('Eco Paper Tapestry', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000', 'Recycled Fiber Art', 'Maya Lin', 'maya-lin', 'Formed entirely from 100% post-consumer discarded paper transformed into raw cotton-like pulp.', '60 in x 40 in', 'Recycled Cotton Pulp', 'Original Piece (Available)')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View Work &amp; Bio</button>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Your Profile">
+                <h3>Lead Artist &amp; Director</h3>
+                <span class="artist-role">Founder &amp; Principal Creator</span>
+                <p style="margin-bottom: 1.2rem;">Directing all mobile painting workshops, Upcycle / Visual Art collections, community charity initiatives, and studio portraiture.</p>
+                <button onclick="showPage('upcycle-art')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View My Art Gallery</button>
             </div>
         </div>
     </main>
@@ -1351,8 +1215,8 @@
     <!-- PAGE 4: TESTIMONIALS -->
     <main id="testimonials-page" class="page-view">
         <div class="section-header">
-            <h1>Guest Testimonials</h1>
-            <p>Read what our workshop attendees, party hosts, corporate clients, and parents have to say.</p>
+            <h1>Guest &amp; Host Testimonials</h1>
+            <p>Read what our event attendees, hotel partners, venue hosts, corporate clients, and parents have to say.</p>
         </div>
 
         <div class="testimonials-grid">
@@ -1387,7 +1251,7 @@
             <div class="testimonial-card">
                 <div>
                     <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"I hadn't picked up a paintbrush since high school, but Elena made the whole process so easy and fun. I love my canvas!"[cite: 1]</p>
+                    <p class="testimonial-text">"I hadn't picked up a paintbrush since high school, but the instructions made the whole process so easy and fun. I love my canvas!"[cite: 1]</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">M</div>
@@ -1401,7 +1265,7 @@
             <div class="testimonial-card">
                 <div>
                     <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"We commissioned Marcus Chen for an upcycled timber piece for our office lobby, and it completely transformed the space. Highly recommended!"[cite: 1]</p>
+                    <p class="testimonial-text">"We commissioned an upcycled timber piece for our office lobby, and it completely transformed the space. Highly recommended!"[cite: 1]</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">A</div>
@@ -1428,102 +1292,110 @@
         </div>
     </main>
 
-    <!-- GALLERY 1: SIP & PAINT GALLERY (9 ITEMS) -->
+    <!-- GALLERY 1: SIP & PAINT GALLERY -->
     <main id="sip-paint-gallery" class="page-view">
         <div class="section-header">
-            <h1>Sip &amp; Paint Gallery</h1>
-            <p>Explore candidate paintings for your upcoming workshop or check out past event highlights.</p>
+            <h1>Sip &amp; Paint Event Gallery</h1>
+            <p>Take a look at our pop-up setups, live workshops, venue activations, charitable events, and youth summer classes in action.</p>
         </div>
         <div class="gallery-grid">
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600" alt="Cherry Blossom Evening">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Hotel Lounge Pop-Up">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Cherry Blossom Evening</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Soft gradient background with bold floral brushwork.</p>
-                    <button onclick="requestArtwork('Class Selection: Cherry Blossom Evening')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Hotel Activation</span>
+                    <h3 style="margin: 0.3rem 0;">Lounge Painting Night</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">An elegant evening pop-up event hosted inside a boutique hotel lounge.</p>
+                    <button onclick="requestArtwork('Inquiry for Lounge Painting Night Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600" alt="Neon City Skyline">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Outdoor Patio Workshop">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Neon City Skyline</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Vibrant acrylic painting exploring reflection and perspective.</p>
-                    <button onclick="requestArtwork('Class Selection: Neon City Skyline')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Outdoor Pop-Up</span>
+                    <h3 style="margin: 0.3rem 0;">Outdoor Patio Session</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Relaxed outdoor paint and sip gathering on a scenic restaurant terrace.</p>
+                    <button onclick="requestArtwork('Inquiry for Outdoor Patio Session Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Sunset Horizons">
+                <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Charity Fundraiser Event">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Sunset Horizons</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Warm color blending exercise with silhouette features.</p>
-                    <button onclick="requestArtwork('Class Selection: Sunset Horizons')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Charity Event</span>
+                    <h3 style="margin: 0.3rem 0;">Sponsored Charity Fundraiser</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Fundraising paint night raising money and awareness for local initiatives.</p>
+                    <button onclick="requestArtwork('Inquiry for Sponsored Charity Fundraiser Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Cosmic Galaxy Drift">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Corporate Team Paint Night">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Cosmic Galaxy Drift</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Splatter paint techniques and glowing nebulae.</p>
-                    <button onclick="requestArtwork('Class Selection: Cosmic Galaxy Drift')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Corporate Mobile</span>
+                    <h3 style="margin: 0.3rem 0;">Corporate Retreat Paint Night</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">On-location team bonding session held right at the company headquarters.</p>
+                    <button onclick="requestArtwork('Inquiry for Corporate Retreat Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600" alt="Tropical Botanical Palms">
+                <img src="https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=600" alt="Private Birthday Mobile Session">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Tropical Botanical Palms</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Lush greens and botanical layering techniques.</p>
-                    <button onclick="requestArtwork('Class Selection: Tropical Botanical Palms')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Private Party</span>
+                    <h3 style="margin: 0.3rem 0;">Backyard Celebration</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Mobile setup for an intimate birthday celebration in a private garden.</p>
+                    <button onclick="requestArtwork('Inquiry for Backyard Celebration Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=600" alt="Ocean Wave Serenity">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600" alt="Rooftop Sunset Sip & Paint">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Ocean Wave Serenity</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Seascape painting focusing on water motion and foam.</p>
-                    <button onclick="requestArtwork('Class Selection: Ocean Wave Serenity')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Resort & Rooftop</span>
+                    <h3 style="margin: 0.3rem 0;">Rooftop Sunset Painting</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Sunset painting activation hosted on a boutique hotel rooftop venue.</p>
+                    <button onclick="requestArtwork('Inquiry for Rooftop Sunset Painting Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600" alt="Autumn Forest Path">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600" alt="Guided Painting Instruction">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Autumn Forest Path</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Rich fall hues with depth and perspective training.</p>
-                    <button onclick="requestArtwork('Class Selection: Autumn Forest Path')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Workshop Instruction</span>
+                    <h3 style="margin: 0.3rem 0;">Step-By-Step Guidance</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Live instructor guiding attendees through brush stroke techniques.</p>
+                    <button onclick="requestArtwork('Inquiry for Guided Workshop Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=600" alt="Starry Night Dreams">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600" alt="Live Event Canvas Creation">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Starry Night Dreams</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Swirling motion brushwork inspired by post-impressionism.</p>
-                    <button onclick="requestArtwork('Class Selection: Starry Night Dreams')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Event Action</span>
+                    <h3 style="margin: 0.3rem 0;">Interactive Group Canvas</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Collaborative canvas creation at a festive community pop-up.</p>
+                    <button onclick="requestArtwork('Inquiry for Interactive Group Canvas Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
+
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600" alt="Golden Mountain Glow">
+                <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=600" alt="Youth Summer Program Pop-Up">
                 <div class="media-body">
-                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Class Selection</span>
-                    <h3 style="margin: 0.3rem 0;">Golden Mountain Glow</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Geometric mountain shapes with metallic accent paint.</p>
-                    <button onclick="requestArtwork('Class Selection: Golden Mountain Glow')" class="btn btn-outline" style="width: 100%;">Inquire for Class</button>
+                    <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Youth Workshop (Ages 6–16)</span>
+                    <h3 style="margin: 0.3rem 0;">Youth Summer Class Pop-Up</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Mobile creative art workshop for young artists ages 6 to 16.</p>
+                    <button onclick="requestArtwork('Inquiry for Youth Art Program Pop-Up Setup')" class="btn btn-outline" style="width: 100%;">Inquire Similar Event</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- GALLERY 2: UPCYCLE FINE ART (9 ITEMS) -->
+    <!-- GALLERY 2: UPCYCLE / VISUAL ART (9 ITEMS BY YOU) -->
     <main id="upcycle-art" class="page-view">
         <div class="section-header">
-            <h1>Upcycle Fine Art Collection</h1>
-            <p>Discover sustainable, eco-conscious artwork created from reclaimed materials and mixed media.</p>
+            <h1>Upcycle / Visual Art Collection</h1>
+            <p>Explore sustainable, eco-conscious artwork and mixed-media creations handcrafted by our principal artist.</p>
         </div>
         <div class="gallery-grid">
             <div class="media-card">
@@ -1532,7 +1404,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Mixed Media</span>
                     <h3 style="margin: 0.3rem 0;">Reclaimed Timber Mosaic</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Architectural wall relief created from salvaged urban timber.</p>
-                    <button onclick="openUpcycleDetail('Reclaimed Timber Mosaic', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000', 'Mixed Media Wall Relief', 'Marcus Chen', 'marcus-chen', 'This piece reclaims weathered 19th-century pine and oak urban timber, hand-cut into geometric facets that reflect ambient room lighting.', '48 in x 36 in', 'Salvaged Pine & Oak, Brass Inlays', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Reclaimed Timber Mosaic', 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000', 'Mixed Media Wall Relief', 'This piece reclaims weathered 19th-century pine and oak urban timber, hand-cut into geometric facets that reflect ambient room lighting.', '48 in x 36 in', 'Salvaged Pine & Oak, Brass Inlays', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1542,7 +1414,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Sculptural Wall Art</span>
                     <h3 style="margin: 0.3rem 0;">Industrial Assemblage</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Crafted from discarded brass, copper wire, and vintage iron.</p>
-                    <button onclick="openUpcycleDetail('Industrial Assemblage', 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1000', 'Metal & Iron Sculpture', 'Marcus Chen', 'marcus-chen', 'An intricate tactile wall sculpture constructed from reclaimed copper wiring, industrial brass fittings, and vintage steel plates.', '36 in x 36 in', 'Copper, Brass, Vintage Iron', 'Private Gallery Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Industrial Assemblage', 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1000', 'Metal & Iron Sculpture', 'An intricate tactile wall sculpture constructed from reclaimed copper wiring, industrial brass fittings, and vintage steel plates.', '36 in x 36 in', 'Copper, Brass, Vintage Iron', 'Private Gallery Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1552,7 +1424,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Textile & Paper</span>
                     <h3 style="margin: 0.3rem 0;">Eco Paper Tapestry</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Woven from handmade recycled pulp and natural dyes.</p>
-                    <button onclick="openUpcycleDetail('Eco Paper Tapestry', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000', 'Recycled Fiber Art', 'Maya Lin', 'maya-lin', 'Formed entirely from 100% post-consumer discarded paper transformed into raw cotton-like pulp, dyed using organic botanical extracts.', '60 in x 40 in', 'Recycled Cotton Pulp, Indigo Dye', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Eco Paper Tapestry', 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000', 'Recycled Fiber Art', 'Formed entirely from 100% post-consumer discarded paper transformed into raw cotton-like pulp, dyed using organic botanical extracts.', '60 in x 40 in', 'Recycled Cotton Pulp, Indigo Dye', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1562,7 +1434,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Glass & Light</span>
                     <h3 style="margin: 0.3rem 0;">Salvaged Glass Fusion</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Upcycled bottles transformed into backlit stained glass panels.</p>
-                    <button onclick="openUpcycleDetail('Salvaged Glass Fusion', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1000', 'Glass Wall Installation', 'Marcus Chen', 'marcus-chen', 'Recycled beverage bottles kiln-fired and fused together into glowing translucent panels that react vividly to ambient indoor lighting.', '40 in x 30 in', 'Upcycled Kiln Glass, Steel Frame', 'Commission Available')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Salvaged Glass Fusion', 'https://images.unsplash.com/photo-1578926375605-eaf7559b1458?w=1000', 'Glass Wall Installation', 'Recycled beverage bottles kiln-fired and fused together into glowing translucent panels that react vividly to ambient indoor lighting.', '40 in x 30 in', 'Upcycled Kiln Glass, Steel Frame', 'Commission Available')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1572,7 +1444,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Repurposed Fabric</span>
                     <h3 style="margin: 0.3rem 0;">Denim & Canvas Mosaic</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Collaged textiles mounted on reclaimed barnwood panels.</p>
-                    <button onclick="openUpcycleDetail('Denim & Canvas Mosaic', 'https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=1000', 'Textile Collage', 'Maya Lin', 'maya-lin', 'Stripped denim and heavy industrial canvas scraps collected from garment workshops, stitched and layered over salvaged Canadian barnwood.', '48 in x 48 in', 'Upcycled Denim, Barnwood', 'Original Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Denim & Canvas Mosaic', 'https://images.unsplash.com/photo-1501472312651-726afe119ff1?w=1000', 'Textile Collage', 'Stripped denim and heavy industrial canvas scraps collected from garment workshops, stitched and layered over salvaged Canadian barnwood.', '48 in x 48 in', 'Upcycled Denim, Barnwood', 'Original Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1582,7 +1454,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Paper Ephemera</span>
                     <h3 style="margin: 0.3rem 0;">Vintage Ephemera Study</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Layered 19th-century manuscript pages with ink wash overlays.</p>
-                    <button onclick="openUpcycleDetail('Vintage Ephemera Study', 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1000', 'Paper Mixed Media', 'Maya Lin', 'maya-lin', 'Rescued vintage ledgers and antique architectural blue-prints layered with Japanese sumi ink washes and gold leaf accents.', '30 in x 24 in', 'Historical Manuscripts, Gold Leaf', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Vintage Ephemera Study', 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1000', 'Paper Mixed Media', 'Rescued vintage ledgers and antique architectural blue-prints layered with Japanese sumi ink washes and gold leaf accents.', '30 in x 24 in', 'Historical Manuscripts, Gold Leaf', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1592,7 +1464,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Metalwork</span>
                     <h3 style="margin: 0.3rem 0;">Rust & Geometry</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Free-standing geometric sculpture built from scrapped steel.</p>
-                    <button onclick="openUpcycleDetail('Rust & Geometry', 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=1000', '3D Steel Sculpture', 'Marcus Chen', 'marcus-chen', 'Free-standing balance sculpture constructed from recycled building structural steel beams, welded into dynamic angular forms with sealed patina finishes.', '64 in height', 'Scrapped Structural Steel', 'Studio Exhibition Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Rust & Geometry', 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=1000', '3D Steel Sculpture', 'Free-standing balance sculpture constructed from recycled building structural steel beams, welded into dynamic angular forms with sealed patina finishes.', '64 in height', 'Scrapped Structural Steel', 'Studio Exhibition Piece')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
@@ -1602,27 +1474,27 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Natural Materials</span>
                     <h3 style="margin: 0.3rem 0;">Coastal Driftwood Relief</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Gathered shoreline timber crafted into organic wall art.</p>
-                    <button onclick="openUpcycleDetail('Coastal Driftwood Relief', 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1000', 'Natural Wood Sculpture', 'Marcus Chen', 'marcus-chen', 'Foraged along Canadian shorelines, these smoothed driftwood pieces are arranged according to natural grain direction to depict undulating tide movements.', '52 in x 28 in', 'Foraged Shoreline Timber', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Coastal Driftwood Relief', 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1000', 'Natural Wood Sculpture', 'Foraged along Canadian shorelines, these smoothed driftwood pieces are arranged according to natural grain direction to depict undulating tide movements.', '52 in x 28 in', 'Foraged Shoreline Timber', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
 
             <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=600" alt="Shattered Tile Mosaic">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600" alt="Shattered Tile Mosaic">
                 <div class="media-body">
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Ceramic & Stone</span>
                     <h3 style="margin: 0.3rem 0;">Shattered Tile Mosaic</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Salvaged construction tiles reset into dynamic abstract patterns.</p>
-                    <button onclick="openUpcycleDetail('Shattered Tile Mosaic', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1000', 'Ceramic Mosaic Panel', 'Marcus Chen', 'marcus-chen', 'Excess construction porcelain tiles shattered and manually pieced together into an abstract radial sunburst panel sealed in charcoal grout.', '36 in x 36 in', 'Salvaged Porcelain & Grout', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Artist</button>
+                    <button onclick="openUpcycleDetail('Shattered Tile Mosaic', 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1000', 'Ceramic Mosaic Panel', 'Excess construction porcelain tiles shattered and manually pieced together into an abstract radial sunburst panel sealed in charcoal grout.', '36 in x 36 in', 'Salvaged Porcelain & Grout', 'Original Piece (Available)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Detail &amp; Bio</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- OPTION 2: COMBINED PAGE (ARTWORK + ARTIST PROFILE STACKED TOGETHER) -->
+    <!-- COMBINED PAGE: SINGLE ARTIST DETAIL VIEW (WORK + YOUR BIO) -->
     <main id="upcycle-detail-page" class="page-view">
         <div style="margin-bottom: 2rem;">
             <button onclick="showPage('upcycle-art')" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem;">
-                &#8592; Back to Upcycle Fine Art Collection
+                &#8592; Back to Upcycle / Visual Art Collection
             </button>
         </div>
 
@@ -1642,7 +1514,7 @@
                     <ul class="artwork-spec-list">
                         <li class="spec-item">
                             <label>Artist / Creator</label>
-                            <span id="detail-artist-name" style="color: var(--primary); font-weight: 700;">Artist Name</span>
+                            <span style="color: var(--primary); font-weight: 700;">Principal Artist &amp; Director</span>
                         </li>
                         <li class="spec-item">
                             <label>Dimensions</label>
@@ -1658,44 +1530,59 @@
                         </li>
                     </ul>
 
-                    <button id="inquire-art-btn" onclick="requestArtwork('Upcycle Fine Art Inquiry')" class="btn" style="width: 100%; font-size: 1.05rem; padding: 0.9rem;">
+                    <button id="inquire-art-btn" onclick="requestArtwork('Upcycle / Visual Art Inquiry')" class="btn" style="width: 100%; font-size: 1.05rem; padding: 0.9rem;">
                         Reserve / Inquire About This Piece
                     </button>
                 </div>
             </div>
 
-            <!-- BOTTOM HALF: ARTIST PROFILE & PHILOSOPHY INTEGRATED DIRECTLY -->
+            <!-- BOTTOM HALF: YOUR ARTIST PROFILE & PHILOSOPHY -->
             <div class="artist-secondary-section">
                 <div class="artist-profile-header">
-                    <img id="integrated-artist-photo" src="" alt="Artist Portrait" class="artist-profile-avatar">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800" alt="Artist Portrait" class="artist-profile-avatar">
                     <div>
-                        <span style="color: var(--primary); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Artist Behind The Work</span>
-                        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.2rem;" id="integrated-artist-name">Artist Name</h2>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.8rem;" id="integrated-artist-role">Specialty Role</p>
-                        <p style="color: var(--text-light); font-style: italic; font-size: 1rem; line-height: 1.5;" id="integrated-artist-quote">
-                            "Artist quote statement."
+                        <span style="color: var(--primary); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">The Creator Behind The Work</span>
+                        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.2rem;">Principal Artist &amp; Studio Director</h2>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.8rem;">Visual Arts, Upcycling &amp; Mobile Events</p>
+                        <p style="color: var(--text-light); font-style: italic; font-size: 1rem; line-height: 1.5;">
+                            "My creative work is rooted in the belief that discarded materials and natural elements possess deep historical resonance. By blending sustainable upcycling with modern visual composition, I aim to bridge environmental mindfulness with striking fine art."
                         </p>
                     </div>
                 </div>
 
                 <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Biography &amp; Material Sourcing Philosophy</h3>
-                    <div style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;" id="integrated-artist-bio">
-                        <!-- Dynamically injected artist biography -->
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Biography &amp; Creative Philosophy</h3>
+                    <div style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7;">
+                        <p style="margin-bottom: 0.8rem;">As the founder and lead creator of Sip & Strokes Canada, my artistic journey spans mobile event direction, tactile sculpture, textile design, and studio portraiture. I collaborate with local builders, community spaces, and environmental restoration projects to source reclaimed materials that would otherwise be discarded.</p>
+                        <p style="margin-bottom: 0.8rem;">Every piece in my collection is handmade through a meticulous process of cleaning, shaping, structuring, and sealing with eco-conscious finishes. Whether crafting interactive pop-up paint workshops, teaching youth summer classes, or building sculptural wall panels, my goal is to make art accessible, sustainable, and deeply engaging.</p>
                     </div>
                 </div>
 
                 <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 1.5rem;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Sustainability Pillars &amp; Techniques</h3>
-                    <div class="features-grid" style="margin-bottom: 0;" id="integrated-artist-pillars">
-                        <!-- Dynamically injected feature boxes -->
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Studio &amp; Material Pillars</h3>
+                    <div class="features-grid" style="margin-bottom: 0;">
+                        <div class="feature-item" style="text-align: left; padding: 1.2rem;">
+                            <span class="feature-icon" style="font-size: 1.6rem;">🪵</span>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Salvaged Urban Timber</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">Reclaimed pine, oak, and architectural wood sourced from Canadian renovations.</p>
+                        </div>
+                        <div class="feature-item" style="text-align: left; padding: 1.2rem;">
+                            <span class="feature-icon" style="font-size: 1.6rem;">🌿</span>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Eco-Friendly Finishes</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">Finished with organic plant oils, non-toxic sealants, and natural botanical dyes.</p>
+                        </div>
+                        <div class="feature-item" style="text-align: left; padding: 1.2rem;">
+                            <span class="feature-icon" style="font-size: 1.6rem;">✨</span>
+                            <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">Custom Commissions</h4>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">Tailored visual art installations designed specifically for your space or venue.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- GALLERY 3: STUDIO PHOTOGRAPHY (9 ITEMS) -->
+    <!-- GALLERY 3: STUDIO PHOTOGRAPHY -->
     <main id="photography" class="page-view">
         <div class="section-header">
             <h1>Studio Photography</h1>
@@ -1786,11 +1673,11 @@
         </div>
     </main>
 
-    <!-- BOOKING PAGE (WEB3FORMS INTEGRATED) -->
+    <!-- BOOKING & PARTNERSHIP PAGE -->
     <main id="booking-page" class="page-view">
         <div class="section-header">
-            <h1>Inquire &amp; Book</h1>
-            <p>Send us a message to reserve a date, request an artwork selection, or schedule a custom event.</p>
+            <h1>Inquire, Book &amp; Partner</h1>
+            <p>Send us a message to schedule a pop-up paint event, discuss hotel/charity partnerships, or register for youth summer classes.</p>
         </div>
 
         <section class="booking-section">
@@ -1799,8 +1686,8 @@
                 <input type="hidden" name="subject" value="New Inquiry from Sip &amp; Strokes Canada Website">
 
                 <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="name" placeholder="Jane Doe" required>
+                    <label for="fullName">Full Name / Organization Name</label>
+                    <input type="text" id="fullName" name="name" placeholder="Jane Doe / Organization Manager" required>
                 </div>
 
                 <div class="form-group">
@@ -1809,21 +1696,23 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="interestType">Service Interest</label>
+                    <label for="interestType">Inquiry / Service Type</label>
                     <select id="interestType" name="service_interest">
-                        <option value="Classic Sip &amp; Paint">Classic Sip &amp; Paint Session</option>
-                        <option value="VIP Private Party">VIP Private Party</option>
-                        <option value="Mobile Event">On-Location / Mobile Paint Event</option>
-                        <option value="Community / Youth Program">Community Event / Subsidized Youth Classes</option>
-                        <option value="Upcycle Art Commission">Upcycle Fine Art Purchase/Commission</option>
+                        <option value="Hotel / Resort Partnership">Hotel / Resort Venue Collaboration</option>
+                        <option value="Charitable / Sponsored Event">Charitable &amp; Sponsored Event</option>
+                        <option value="Youth Summer Class">Youth Summer Class (Ages 6–16)</option>
+                        <option value="Community Center Event">Community Center / Public Pop-Up Event</option>
+                        <option value="Private Mobile Paint Party">Private Mobile Paint Party</option>
+                        <option value="Corporate Team Event">Corporate Mobile Event</option>
+                        <option value="Upcycle / Visual Art Commission">Upcycle / Visual Art Purchase/Commission</option>
                         <option value="Studio Photography">Studio Photography Session</option>
                         <option value="General Inquiry">General Inquiry</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="requestedArtwork">Selected Theme / Program Title (Optional)</label>
-                    <input type="text" id="requestedArtwork" name="selected_theme" placeholder="e.g., Cherry Blossom Evening / Youth Summer Class">
+                    <label for="requestedArtwork">Selected Theme, Charity, or Youth Program (Optional)</label>
+                    <input type="text" id="requestedArtwork" name="selected_theme" placeholder="e.g., Lounge Painting Night / Youth Summer Camp">
                 </div>
 
                 <div class="form-group">
@@ -1832,8 +1721,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message &amp; Details</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your event, estimated guest count, or youth registration inquiry..." required></textarea>
+                    <label for="message">Message &amp; Partnership Details</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your venue space, charity sponsorship goals, or youth registration inquiry..." required></textarea>
                 </div>
 
                 <button type="submit" id="submitBtn" class="btn" style="width: 100%;">Submit Inquiry</button>
@@ -1844,7 +1733,6 @@
 
     <!-- Footer -->
     <footer>
-        <!-- Direct Contact Details (Email & Phone) -->
         <div class="footer-contact-details">
             <a href="mailto:info@sipandstrokes.ca" class="footer-contact-item">
                 ✉️ info@sipandstrokes.ca
@@ -1867,11 +1755,11 @@
             <a onclick="showPage('home-page')">Home</a>
             <a onclick="showPage('sip-and-paint')">Sip &amp; Paint</a>
             <a onclick="showPage('sip-paint-gallery')">Sip &amp; Paint Gallery</a>
-            <a onclick="showPage('upcycle-art')">Upcycle Fine Art</a>
+            <a onclick="showPage('upcycle-art')">Upcycle / Visual Art</a>
             <a onclick="showPage('photography')">Studio Photography</a>
             <a onclick="showPage('about-page')">About Us</a>
             <a onclick="showPage('testimonials-page')">Testimonials</a>
-            <a onclick="showPage('booking-page')">Inquire / Book</a>
+            <a onclick="showPage('booking-page')">Inquire / Partner</a>
         </nav>
 
         <p>&copy; 2026 Sip &amp; Strokes Canada. All Rights Reserved.</p>
@@ -1879,40 +1767,6 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Database of Upcycle Fine Artists
-        const ARTISTS = {
-            'marcus-chen': {
-                name: 'Marcus Chen',
-                role: 'Reclaimed Timber & Structural Steel Sculptor',
-                photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
-                quote: '"My work is rooted in the belief that forgotten materials possess their own historical resonance. By breathing new life into discarded industrial brass, architectural steel, and salvaged Canadian urban timber, I aim to bridge environmental sustainability with high-end fine art."',
-                bio: [
-                    "With a background in architectural design and sculpture, Marcus Chen has spent over 12 years perfecting sustainable art construction. Based in Canada, Marcus collaborates with local restoration crews, historic building demolitions, and urban arborists to hand-select materials that would otherwise end up in landfills.",
-                    "Each piece in his collection undergoes a meticulous multi-step restoration process: cleaning, hand-shaping, stabilizing, and sealing without toxic chemical lacquers. From 19th-century pine joists restored into geometric wall reliefs to salvaged copper wires woven into tactile tapestries, his works celebrate industrial history and environmental stewardship."
-                ],
-                pillars: [
-                    { icon: '🪵', title: 'Salvaged Urban Timber', desc: 'Reclaimed pine, oak, and maple sourced from historic Canadian building renovations.' },
-                    { icon: '⚙️', title: 'Reclaimed Metals', desc: 'Vintage brass fittings, oxidized steel beams, and copper wire stripped and repurposed.' },
-                    { icon: '🌿', title: 'Zero-VOC Sealing', desc: 'Finished with organic natural plant oils, beeswax, and eco-conscious non-toxic sealants.' }
-                ]
-            },
-            'maya-lin': {
-                name: 'Maya Lin',
-                role: 'Recycled Fiber & Natural Dye Weaver',
-                photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800',
-                quote: '"Textiles carry tactile memories. Upcycling post-consumer cotton, discarded linen, and scrap paper allows us to transform textile waste into soft, soul-restoring architectural wall installations."',
-                bio: [
-                    "Maya Lin brings a decade of sustainable textile exploration to Sip & Strokes Canada. Specializing in zero-waste fiber art, Maya gathers discarded garments, canvas scraps, and post-consumer pulp paper from local Canadian artisans.",
-                    "Using traditional hand-weaving looms and non-toxic botanical dyes derived from avocado seeds, indigo leaves, and marigolds, she creates textured tapestries that bring organic warmth into modern interior spaces."
-                ],
-                pillars: [
-                    { icon: '🧶', title: '100% Recycled Fibers', desc: 'Post-consumer denim, industrial canvas scraps, and handmade paper pulp.' },
-                    { icon: '🌸', title: 'Botanical Natural Dyes', desc: 'Colored naturally using organic botanical extracts, indigo, and plant roots.' },
-                    { icon: '🧵', title: 'Zero-Waste Weaving', desc: 'Every single thread scrap is reused in textural accent stitching.' }
-                ]
-            }
-        };
-
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page-view');
             pages.forEach(page => page.classList.remove('active-page'));
@@ -1925,42 +1779,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // OPTION 2 INTEGRATED ENGINE: POPULATES ARTWORK AND CORRESPONDING ARTIST DIRECTLY ON SAME VIEW
-        function openUpcycleDetail(title, imgUrl, category, artistName, artistId, desc, dims, mats, status) {
-            // Populate Artwork Specs (Top Half)
+        // SINGLE ARTIST UPCYCLE / VISUAL ART DETAIL POPULATOR
+        function openUpcycleDetail(title, imgUrl, category, desc, dims, mats, status) {
             document.getElementById('detail-artwork-title').textContent = title;
             document.getElementById('detail-artwork-img').src = imgUrl;
             document.getElementById('detail-artwork-category').textContent = category;
-            document.getElementById('detail-artist-name').textContent = artistName;
             document.getElementById('detail-artwork-desc').textContent = desc;
             document.getElementById('detail-artwork-dims').textContent = dims;
             document.getElementById('detail-artwork-mats').textContent = mats;
             document.getElementById('detail-artwork-status').textContent = status;
             
             document.getElementById('inquire-art-btn').onclick = function() {
-                requestArtwork('Upcycle Fine Art Inquiry: ' + title);
+                requestArtwork('Upcycle / Visual Art Inquiry: ' + title);
             };
-
-            // Populate Artist Profile Directly Below (Bottom Half)
-            const artistData = ARTISTS[artistId] || ARTISTS['marcus-chen'];
-            document.getElementById('integrated-artist-photo').src = artistData.photo;
-            document.getElementById('integrated-artist-name').textContent = artistData.name;
-            document.getElementById('integrated-artist-role').textContent = artistData.role;
-            document.getElementById('integrated-artist-quote').textContent = artistData.quote;
-
-            // Inject Bio Paragraphs
-            const bioContainer = document.getElementById('integrated-artist-bio');
-            bioContainer.innerHTML = artistData.bio.map(p => `<p style="margin-bottom: 0.8rem;">${p}</p>`).join('');
-
-            // Inject Pillar Cards
-            const pillarsContainer = document.getElementById('integrated-artist-pillars');
-            pillarsContainer.innerHTML = artistData.pillars.map(pillar => `
-                <div class="feature-item" style="text-align: left; padding: 1.2rem;">
-                    <span class="feature-icon" style="font-size: 1.6rem;">${pillar.icon}</span>
-                    <h4 style="font-size: 1rem; margin-bottom: 0.3rem;">${pillar.title}</h4>
-                    <p style="font-size: 0.88rem; color: var(--text-muted);">${pillar.desc}</p>
-                </div>
-            `).join('');
 
             showPage('upcycle-detail-page');
         }
