@@ -347,51 +347,6 @@
             border-radius: 10px;
         }
 
-        /* Artist Bios Section */
-        .artists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .artist-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: center;
-            padding-bottom: 1.5rem;
-        }
-
-        .artist-card img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-        }
-
-        .artist-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .artist-role {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .artist-card p {
-            color: var(--text-muted);
-            padding: 0 1.5rem;
-            font-size: 0.95rem;
-        }
-
         /* Testimonials Grid */
         .testimonials-grid {
             display: grid;
@@ -1119,7 +1074,7 @@
                 </p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800" alt="Mobile Pop Up Paint Setup">
+                <img src="https://i.imgur.com/wDhpb8J.jpeg" alt="Mobile Pop Up Paint Setup">
             </div>
         </div>
 
@@ -1198,13 +1153,13 @@
             <p style="color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 1.5rem;">Snapshots of our mobile setup, guest interactions, and vibrant social gatherings in action.</p>
             <div class="photo-strip-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
                 <div class="photo-strip-item">
-                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600" alt="Event Action 1">
+                    <img src="https://i.imgur.com/vw2lQTA.jpeg" alt="Event Action Left">
                 </div>
                 <div class="photo-strip-item">
-                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600" alt="Event Action 2">
+                    <img src="https://i.imgur.com/vO7fpG7.jpeg" alt="Event Action Middle">
                 </div>
                 <div class="photo-strip-item">
-                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600" alt="Event Action 3">
+                    <img src="https://i.imgur.com/3PNrS7N.jpeg" alt="Event Action Right">
                 </div>
             </div>
             <button onclick="showPage('sip-paint-gallery')" class="btn btn-outline">Explore Sip &amp; Paint Gallery</button>
@@ -1287,12 +1242,31 @@
 
         <div class="about-section">
             <div class="about-content">
-                <h2>Our Story &amp; Mobile Philosophy</h2>
+                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Our Vision &amp; Purpose</span>
+                <h2>Transforming Materials, Giving Back &amp; Building Community Together</h2>
                 <p>Sip &amp; Strokes Canada was established with a singular mission: to bring art, relaxation, and genuine human connection directly into communities, hotels, and vibrant local spaces. By removing the boundaries of a traditional static brick-and-mortar studio, we take creative experiences anywhere people gather.</p>
-                <p>From fine art commissions and youth summer programs (ages 6–16) to charitable fundraising and hotel activations, our team brings color, joy, and collaborative energy to every venue we partner with.</p>
+                <p>At the heart of our studio practice is a profound commitment to <strong>upcycle art and sustainability</strong>. We believe that discarded objects—reclaimed urban timber, scrap metals, and everyday materials—hold deep narratives waiting to be reimagined into enduring fine art and architectural wall reliefs.</p>
+                <p>More than just an art studio, we believe in radical community impact. A dedicated portion of proceeds from our upcycled art sales and mobile workshops directly funds our <strong>subsidized youth summer art classes (ages 6 to 16)</strong> and local community charitable fundraisers.</p>
+                <p><strong>Be Part of the Vision:</strong> When you acquire an original upcycled piece, book a mobile sip-and-paint night, or partner with us as a venue host, you aren't just engaging with art—you are actively helping us mentor the next generation of creators, reduce environmental waste, and keep community-driven creativity alive across Canada.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Mobile Art Studio Setup">
+                <img src="https://images.imgur.com/398fcjQ.jpeg" alt="Sip & Strokes Canada Community Art and Upcycled Sculpture Showcase">
+            </div>
+        </div>
+
+        <!-- SECOND ABOUT PHOTO SECTION (FLIPPED LAYOUT FOR BALANCE) -->
+        <div class="about-section" style="direction: rtl;">
+            <div class="about-content" style="direction: ltr;">
+                <span style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Community Action &amp; Studio Presence</span>
+                <h2>Bringing People Together Through Creativity</h2>
+                <p>Every pop-up event and community gathering we host is designed to break down barriers and make artistic expression welcoming to everyone. From hotel lounge activations to hands-on youth workshops, our mobile setup provides all the guidance, supplies, and positive energy needed for a memorable experience.</p>
+                <p>We invite you to join our growing network of community partners, art collectors, and participants shaping a more vibrant, sustainable cultural landscape across Canada.</p>
+                <div style="margin-top: 1.5rem;">
+                    <button onclick="showPage('booking-page')" class="btn">Partner With Us Today</button>
+                </div>
+            </div>
+            <div class="about-image" style="direction: ltr;">
+                <img src="https://i.imgur.com/3PNrS7N.jpeg" alt="Bringing People Together Through Creativity Action Shot">
             </div>
         </div>
 
@@ -1323,21 +1297,6 @@
                 <p>We respect our host venues, leaving every event space as clean and spotless as we found it.</p>
             </div>
         </section>
-
-        <div class="section-header">
-            <h2>Lead Artist &amp; Studio Director</h2>
-            <p>Guided by your vision in fine art, upcycling, illustration, and photography.</p>
-        </div>
-
-        <div class="artists-grid" style="max-width: 450px; margin: 0 auto 4rem;">
-            <div class="artist-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Your Profile">
-                <h3>Aik Agu</h3>
-                <span class="artist-role">Founder &amp; Principal Creator</span>
-                <p style="margin-bottom: 1.2rem;">Directing all mobile painting workshops, Upcycle / Visual Art collections, community charity initiatives, and studio portraiture.</p>
-                <button onclick="showPage('upcycle-art')" class="btn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">View My Art Gallery</button>
-            </div>
-        </div>
     </main>
 
     <!-- PAGE 4: TESTIMONIALS -->
@@ -1458,7 +1417,7 @@
                     <span class="blog-date">June 12, 2026</span>
                     <h3 style="font-size: 1.3rem; margin-bottom: 0.6rem;">Celebrating Another Successful Season of Subsidized Youth Summer Classes</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.6;">
-                        Our July and August youth summer creative workshops for ages 6 to 16 concluded with an incredible community art showcase. Thank you to all participating families and local community partners!
+                        Our July and August youth summer creative programs for ages 6 to 16 concluded with an incredible community art showcase. Thank you to all participating families and local community partners!
                     </p>
                     <button onclick="showPage('booking-page')" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Get on Youth Alert List</button>
                 </div>
@@ -1689,7 +1648,7 @@
                     <span style="color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Mixed Media • Original Available</span>
                     <h3 style="margin: 0.3rem 0;">windows of Heritage</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Acrylic and fabric  on Canvas</p>
-                    <button onclick="openUpcycleDetail('windows of Heritage', 'https://images.imgur.com/ZHTdcCd.jpeg', 'https://images.imgur.com/7iFnnO5.png', 'Acrylic and fabric on Canvas', 'Windows of Heritage weaves together vibrant patches of textile, acrylic pigment, and heavy impasto texture to create a layered visual tapestry. Framed panels act as portals, presenting abstract symbols, bird motifs, and stylized figures that honor traditional folklore and ancestral memory. The juxtaposition of rough, dark foundational textures with bright, fabric-bordered compartments explores how history and contemporary creation intersect. This mixed-media work invites viewers to look through past narratives and experience the enduring richness of cultural identity.', '36 in x 36 in', 'Acrylic and fabric on Canvas', 'Original Piece (Available for Acquisition)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Artwork Details</button>
+                    <button onclick="openUpcycleDetail('Windows of Heritage', 'https://images.imgur.com/ZHTdcCd.jpeg', 'https://images.imgur.com/7iFnnO5.png', 'Acrylic and fabric on Canvas', 'Windows of Heritage weaves together vibrant patches of textile, acrylic pigment, and heavy impasto texture to create a layered visual tapestry. Framed panels act as portals, presenting abstract symbols, bird motifs, and stylized figures that honor traditional folklore and ancestral memory. The juxtaposition of rough, dark foundational textures with bright, fabric-bordered compartments explores how history and contemporary creation intersect. This mixed-media work invites viewers to look through past narratives and experience the enduring richness of cultural identity.', '36 in x 36 in', 'Acrylic and fabric on Canvas', 'Original Piece (Available for Acquisition)')" class="btn" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">View Artwork Details</button>
                 </div>
             </div>
 
@@ -2104,7 +2063,7 @@
             })
             .then(async (response) => {
                 let res = await response.json();
-                if (response.status === 250 || response.status === 200) {
+                if (response.status === 200) {
                     statusDiv.style.backgroundColor = 'rgba(46, 125, 50, 0.2)';
                     statusDiv.style.color = '#4caf50';
                     statusDiv.textContent = 'Thank you! Your inquiry has been sent successfully. Redirecting to home page...';
